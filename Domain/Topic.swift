@@ -8,6 +8,7 @@
 import Foundation
 
 public struct Topic {
+    let id: String
     var name: String
     var cards: [Card]
 }
