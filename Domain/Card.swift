@@ -8,6 +8,7 @@
 import Foundation
 
 public struct Card {
+    let id: String
     var tittle: String
     var description: String?
     var image: Data?
