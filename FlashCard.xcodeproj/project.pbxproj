@@ -20,6 +20,9 @@
 		95C57E712A25396C00D7565F /* UseCases.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95C57E5E2A25396B00D7565F /* UseCases.framework */; };
 		95C57E722A25396C00D7565F /* UseCases.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 95C57E5E2A25396B00D7565F /* UseCases.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		95C57E7B2A253C9900D7565F /* AddCardProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C57E7A2A253C9900D7565F /* AddCardProtocol.swift */; };
+		95C57E7D2A25461200D7565F /* AddTopicProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C57E7C2A25461200D7565F /* AddTopicProtocol.swift */; };
+		95C57E7F2A254EA300D7565F /* DeleteCardProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C57E7E2A254EA300D7565F /* DeleteCardProtocol.swift */; };
+		95C57E812A2550FC00D7565F /* DeleteTopicProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C57E802A2550FC00D7565F /* DeleteTopicProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +85,9 @@
 		95C57E652A25396B00D7565F /* UseCasesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UseCasesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		95C57E6C2A25396C00D7565F /* UseCasesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCasesTests.swift; sourceTree = "<group>"; };
 		95C57E7A2A253C9900D7565F /* AddCardProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardProtocol.swift; sourceTree = "<group>"; };
+		95C57E7C2A25461200D7565F /* AddTopicProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTopicProtocol.swift; sourceTree = "<group>"; };
+		95C57E7E2A254EA300D7565F /* DeleteCardProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCardProtocol.swift; sourceTree = "<group>"; };
+		95C57E802A2550FC00D7565F /* DeleteTopicProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteTopicProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +196,9 @@
 			isa = PBXGroup;
 			children = (
 				95C57E7A2A253C9900D7565F /* AddCardProtocol.swift */,
+				95C57E7C2A25461200D7565F /* AddTopicProtocol.swift */,
+				95C57E7E2A254EA300D7565F /* DeleteCardProtocol.swift */,
+				95C57E802A2550FC00D7565F /* DeleteTopicProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -419,7 +428,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95C57E812A2550FC00D7565F /* DeleteTopicProtocol.swift in Sources */,
 				95C57E7B2A253C9900D7565F /* AddCardProtocol.swift in Sources */,
+				95C57E7D2A25461200D7565F /* AddTopicProtocol.swift in Sources */,
+				95C57E7F2A254EA300D7565F /* DeleteCardProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
