@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+protocol DeleteTopicProtocol {
+    func deleteTopic(index: Int)
+}
