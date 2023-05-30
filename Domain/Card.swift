@@ -13,7 +13,7 @@ public struct Card {
     public var description: String?
     public var image: Data?
 
-    public init(_ id: String, tittle: String, description: String, image: Data) {
+    public init(_ id: String, tittle: String, description: String? = nil, image: Data? = nil) {
         self.id = id
         self.tittle = tittle
         self.description = description

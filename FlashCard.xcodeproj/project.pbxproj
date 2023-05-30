@@ -23,6 +23,9 @@
 		95C57E7D2A25461200D7565F /* AddTopicProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C57E7C2A25461200D7565F /* AddTopicProtocol.swift */; };
 		95C57E7F2A254EA300D7565F /* DeleteCardProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C57E7E2A254EA300D7565F /* DeleteCardProtocol.swift */; };
 		95C57E812A2550FC00D7565F /* DeleteTopicProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C57E802A2550FC00D7565F /* DeleteTopicProtocol.swift */; };
+		95C57E932A25789D00D7565F /* TopicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C57E922A25789D00D7565F /* TopicManager.swift */; };
+		95C57E952A257B3E00D7565F /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95C57E362A25311700D7565F /* Domain.framework */; };
+		95C57E962A257B3E00D7565F /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 95C57E362A25311700D7565F /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +57,13 @@
 			remoteGlobalIDString = 95C57E5D2A25396B00D7565F;
 			remoteInfo = UseCases;
 		};
+		95C57E972A257B3E00D7565F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 95C57E0F2A25293700D7565F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 95C57E352A25311700D7565F;
+			remoteInfo = Domain;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -65,6 +75,17 @@
 			files = (
 				95C57E722A25396C00D7565F /* UseCases.framework in Embed Frameworks */,
 				95C57E4C2A25311700D7565F /* Domain.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95C57E992A257B3E00D7565F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				95C57E962A257B3E00D7565F /* Domain.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -88,6 +109,7 @@
 		95C57E7C2A25461200D7565F /* AddTopicProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTopicProtocol.swift; sourceTree = "<group>"; };
 		95C57E7E2A254EA300D7565F /* DeleteCardProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCardProtocol.swift; sourceTree = "<group>"; };
 		95C57E802A2550FC00D7565F /* DeleteTopicProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteTopicProtocol.swift; sourceTree = "<group>"; };
+		95C57E922A25789D00D7565F /* TopicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +133,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95C57E952A257B3E00D7565F /* Domain.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,6 +156,7 @@
 				95C57E5F2A25396B00D7565F /* UseCases */,
 				95C57E6B2A25396C00D7565F /* UseCasesTests */,
 				95C57E182A25293700D7565F /* Products */,
+				95C57E942A257B3E00D7565F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -179,6 +203,7 @@
 		95C57E5F2A25396B00D7565F /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				95C57E922A25789D00D7565F /* TopicManager.swift */,
 				95C57E792A25398300D7565F /* Protocols */,
 			);
 			path = UseCases;
@@ -201,6 +226,13 @@
 				95C57E802A2550FC00D7565F /* DeleteTopicProtocol.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		95C57E942A257B3E00D7565F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,10 +304,12 @@
 				95C57E5A2A25396B00D7565F /* Sources */,
 				95C57E5B2A25396B00D7565F /* Frameworks */,
 				95C57E5C2A25396B00D7565F /* Resources */,
+				95C57E992A257B3E00D7565F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				95C57E982A257B3E00D7565F /* PBXTargetDependency */,
 			);
 			name = UseCases;
 			productName = UseCases;
@@ -432,6 +466,7 @@
 				95C57E7B2A253C9900D7565F /* AddCardProtocol.swift in Sources */,
 				95C57E7D2A25461200D7565F /* AddTopicProtocol.swift in Sources */,
 				95C57E7F2A254EA300D7565F /* DeleteCardProtocol.swift in Sources */,
+				95C57E932A25789D00D7565F /* TopicManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,6 +500,11 @@
 			isa = PBXTargetDependency;
 			target = 95C57E5D2A25396B00D7565F /* UseCases */;
 			targetProxy = 95C57E6F2A25396C00D7565F /* PBXContainerItemProxy */;
+		};
+		95C57E982A257B3E00D7565F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 95C57E352A25311700D7565F /* Domain */;
+			targetProxy = 95C57E972A257B3E00D7565F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

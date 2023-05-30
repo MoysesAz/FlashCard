@@ -9,5 +9,5 @@ import Foundation
 
 protocol AddCardProtocol {
     func addCard(tittle: String, description: String)
-    func addCard(tittle: String, imageData: String)
+    func addCard(tittle: String, imageData: Data)
 }
