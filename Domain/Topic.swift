@@ -8,9 +8,9 @@
 import Foundation
 
 public struct Topic {
-    let id: String
-    var name: String
-    var cards: [Card]
+    public let id: String
+    public var name: String
+    public var cards: [Card]
 
     public init(_ id: String, name: String, cards: [Card]) {
         self.id = id
