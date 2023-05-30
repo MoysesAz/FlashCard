@@ -8,10 +8,10 @@
 import Foundation
 
 public struct Card {
-    let id: String
-    var tittle: String
-    var description: String?
-    var image: Data?
+    public let id: String
+    public var tittle: String
+    public var description: String?
+    public var image: Data?
 
     public init(_ id: String, tittle: String, description: String, image: Data) {
         self.id = id
