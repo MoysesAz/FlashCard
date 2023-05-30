@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		954202972A26548600B6AD4E /* TopicManagerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954202962A26548600B6AD4E /* TopicManagerError.swift */; };
 		95C57E1B2A25293700D7565F /* FlashCardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C57E1A2A25293700D7565F /* FlashCardApp.swift */; };
 		95C57E1D2A25293700D7565F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C57E1C2A25293700D7565F /* ContentView.swift */; };
 		95C57E1F2A25293800D7565F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95C57E1E2A25293800D7565F /* Assets.xcassets */; };
@@ -16,7 +17,7 @@
 		95C57E552A25314800D7565F /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C57E542A25314800D7565F /* Card.swift */; };
 		95C57E582A25337400D7565F /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C57E572A25337400D7565F /* Topic.swift */; };
 		95C57E662A25396B00D7565F /* UseCases.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95C57E5E2A25396B00D7565F /* UseCases.framework */; };
-		95C57E6D2A25396C00D7565F /* UseCasesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C57E6C2A25396C00D7565F /* UseCasesTests.swift */; };
+		95C57E6D2A25396C00D7565F /* TopicManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C57E6C2A25396C00D7565F /* TopicManagerTests.swift */; };
 		95C57E712A25396C00D7565F /* UseCases.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95C57E5E2A25396B00D7565F /* UseCases.framework */; };
 		95C57E722A25396C00D7565F /* UseCases.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 95C57E5E2A25396B00D7565F /* UseCases.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		95C57E7B2A253C9900D7565F /* AddCardProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C57E7A2A253C9900D7565F /* AddCardProtocol.swift */; };
@@ -93,6 +94,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		954202962A26548600B6AD4E /* TopicManagerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicManagerError.swift; sourceTree = "<group>"; };
 		95C57E172A25293700D7565F /* FlashCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlashCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95C57E1A2A25293700D7565F /* FlashCardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardApp.swift; sourceTree = "<group>"; };
 		95C57E1C2A25293700D7565F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -104,7 +106,7 @@
 		95C57E572A25337400D7565F /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
 		95C57E5E2A25396B00D7565F /* UseCases.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UseCases.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95C57E652A25396B00D7565F /* UseCasesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UseCasesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		95C57E6C2A25396C00D7565F /* UseCasesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCasesTests.swift; sourceTree = "<group>"; };
+		95C57E6C2A25396C00D7565F /* TopicManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicManagerTests.swift; sourceTree = "<group>"; };
 		95C57E7A2A253C9900D7565F /* AddCardProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardProtocol.swift; sourceTree = "<group>"; };
 		95C57E7C2A25461200D7565F /* AddTopicProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTopicProtocol.swift; sourceTree = "<group>"; };
 		95C57E7E2A254EA300D7565F /* DeleteCardProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCardProtocol.swift; sourceTree = "<group>"; };
@@ -148,6 +150,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		954202952A26546E00B6AD4E /* Erros */ = {
+			isa = PBXGroup;
+			children = (
+				954202962A26548600B6AD4E /* TopicManagerError.swift */,
+			);
+			path = Erros;
+			sourceTree = "<group>";
+		};
 		95C57E0E2A25293700D7565F = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +213,7 @@
 		95C57E5F2A25396B00D7565F /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				954202952A26546E00B6AD4E /* Erros */,
 				95C57E922A25789D00D7565F /* TopicManager.swift */,
 				95C57E792A25398300D7565F /* Protocols */,
 			);
@@ -212,7 +223,7 @@
 		95C57E6B2A25396C00D7565F /* UseCasesTests */ = {
 			isa = PBXGroup;
 			children = (
-				95C57E6C2A25396C00D7565F /* UseCasesTests.swift */,
+				95C57E6C2A25396C00D7565F /* TopicManagerTests.swift */,
 			);
 			path = UseCasesTests;
 			sourceTree = "<group>";
@@ -464,6 +475,7 @@
 			files = (
 				95C57E812A2550FC00D7565F /* DeleteTopicProtocol.swift in Sources */,
 				95C57E7B2A253C9900D7565F /* AddCardProtocol.swift in Sources */,
+				954202972A26548600B6AD4E /* TopicManagerError.swift in Sources */,
 				95C57E7D2A25461200D7565F /* AddTopicProtocol.swift in Sources */,
 				95C57E7F2A254EA300D7565F /* DeleteCardProtocol.swift in Sources */,
 				95C57E932A25789D00D7565F /* TopicManager.swift in Sources */,
@@ -474,7 +486,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95C57E6D2A25396C00D7565F /* UseCasesTests.swift in Sources */,
+				95C57E6D2A25396C00D7565F /* TopicManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
