@@ -9,13 +9,13 @@ import Foundation
 import Domain
 
 public class TopicManager: AddTopicProtocol, DeleteTopicProtocol, AddCardProtocol, DeleteCardProtocol {
+    public var pointerTopic: Int = 0
+
     private var _topics: [Topic] = []
     public var topics: [Topic] {
         get { return _topics }
         set { _ = newValue }
     }
-
-    public var pointerTopic: Int = 0
 
     public func addCard(title: String, description: String) throws {
         try verifyTopic()
@@ -46,19 +46,20 @@ public class TopicManager: AddTopicProtocol, DeleteTopicProtocol, AddCardProtoco
     }
 
     private func verifyTopic() throws {
-        guard _topics.isEmpty else {
+        guard !_topics.isEmpty else {
             throw TopicManagerError.topicIsEmpty
         }
-        guard pointerTopic > _topics.count || pointerTopic < 0 else {
+        guard pointerTopic < _topics.count || pointerTopic > 0 else {
+            print(pointerTopic, _topics.count)
             throw TopicManagerError.indexNotCompatibleWithTopic
         }
     }
 
     private func verifyCard(cardIndex: Int) throws {
-        guard _topics[pointerTopic].cards.isEmpty else {
+        guard !_topics[pointerTopic].cards.isEmpty else {
             throw TopicManagerError.cardsIsEmpty
         }
-        guard cardIndex > _topics[pointerTopic].cards.count || cardIndex < 0 else {
+        guard cardIndex < _topics[pointerTopic].cards.count || cardIndex > 0 else {
             throw TopicManagerError.indexNotCompatibleWithCards
         }
     }
