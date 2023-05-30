@@ -11,8 +11,22 @@ import XCTest
 class TopicManagerTests: XCTestCase {
     func teste_addTopic() {
         let sut = TopicManager()
-        sut.addTopic(name: "topico 1")
+        sut.addTopic(name: "Solid")
         let result = sut.topics.count
-        XCTAssertEqual(result, 1, "Era esperado existir 1 item na lista")
+        XCTAssertEqual(result, 1)
+    }
+
+    func teste_deleteTopic() {
+        let sut = TopicManager()
+        sut.addTopic(name: "Solid")
+
+        do {
+            try sut.deleteTopic(indexTopic: 0)
+        } catch {
+            XCTFail("Erro inesperado: \(error)")
+        }
+
+        let result = sut.topics.count
+        XCTAssertEqual(result, 0)
     }
 }
