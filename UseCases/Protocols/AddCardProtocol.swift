@@ -8,6 +8,6 @@
 import Foundation
 
 protocol AddCardProtocol {
-    func addCard(tittle: String, description: String) throws
-    func addCard(tittle: String, imageData: Data) throws
+    func addCard(title: String, description: String) throws
+    func addCard(title: String, imageData: Data) throws
 }

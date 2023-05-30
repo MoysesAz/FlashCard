@@ -17,22 +17,22 @@ public class TopicManager: AddTopicProtocol, DeleteTopicProtocol, AddCardProtoco
 
     public var pointerTopic: Int = 0
 
-    public func addCard(tittle: String, description: String) throws {
+    public func addCard(title: String, description: String) throws {
         try verifyTopic()
-        let newCard = Card(UUID().uuidString, tittle: tittle, description: description)
+        let newCard = Card(UUID().uuidString, title: title, description: description)
         _topics[pointerTopic].cards.append(newCard)
     }
 
-    public func addCard(tittle: String, imageData: Data) throws {
+    public func addCard(title: String, imageData: Data) throws {
         try verifyTopic()
-        let newCard = Card(UUID().uuidString, tittle: tittle, image: imageData)
+        let newCard = Card(UUID().uuidString, title: title, image: imageData)
         _topics[pointerTopic].cards.append(newCard)
     }
 
-    public func deleteCard(index: Int) throws {
+    public func deleteCard(indexCard: Int) throws {
         try verifyTopic()
-        try verifyCard(cardIndex: index)
-        _topics[pointerTopic].cards.remove(at: index)
+        try verifyCard(cardIndex: indexCard)
+        _topics[pointerTopic].cards.remove(at: indexCard)
     }
 
     public func addTopic(name: String) {
@@ -40,9 +40,9 @@ public class TopicManager: AddTopicProtocol, DeleteTopicProtocol, AddCardProtoco
         _topics.append(newTopic)
     }
 
-    public func deleteTopic(index: Int) throws {
+    public func deleteTopic(indexTopic: Int) throws {
         try verifyTopic()
-        _topics.remove(at: index)
+        _topics.remove(at: indexTopic)
     }
 
     private func verifyTopic() throws {

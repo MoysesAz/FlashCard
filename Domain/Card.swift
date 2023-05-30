@@ -9,13 +9,13 @@ import Foundation
 
 public struct Card {
     public let id: String
-    public var tittle: String
+    public var title: String
     public var description: String?
     public var image: Data?
 
-    public init(_ id: String, tittle: String, description: String? = nil, image: Data? = nil) {
+    public init(_ id: String, title: String, description: String? = nil, image: Data? = nil) {
         self.id = id
-        self.tittle = tittle
+        self.title = title
         self.description = description
         self.image = image
     }

@@ -8,5 +8,5 @@
 import Foundation
 
 protocol DeleteTopicProtocol {
-    func deleteTopic(index: Int) throws
+    func deleteTopic(indexTopic: Int) throws
 }
