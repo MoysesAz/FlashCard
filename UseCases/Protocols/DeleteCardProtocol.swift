@@ -8,5 +8,5 @@
 import Foundation
 
 protocol DeleteCardProtocol {
-    func deleteCardProtocol(index: Int)
+    func deleteCard(index: Int) throws
 }
