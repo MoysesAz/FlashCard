@@ -10,7 +10,6 @@ import Domain
 
 public class TopicManager: AddTopicProtocol, DeleteTopicProtocol, AddCardProtocol, DeleteCardProtocol {
     public var pointerTopic: Int = 0
-
     private var _topics: [Topic] = []
     public var topics: [Topic] {
         get { return _topics }
