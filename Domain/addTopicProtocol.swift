@@ -8,5 +8,10 @@
 import Foundation
 
 protocol addTopic {
-    func add(addTopicName: TopicModel, completion: @escaping (Result<TopicModel, Error>) -> Void)
+    func add(addTopicName: addTopicModel, completion: @escaping (Result<TopicModel, Error>) -> Void)
+}
+
+struct addTopicModel {
+    var id: UUID
+    var name: String
 }
