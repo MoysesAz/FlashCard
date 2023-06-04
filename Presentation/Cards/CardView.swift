@@ -69,7 +69,7 @@ struct CardView: View {
         }
 
         .sheet(isPresented: $showingSheet) {
-            FormcCard(showingSheet: showingSheet)
+            FormCard(showingSheet: showingSheet)
         }
         .rotation3DEffect(.degrees(rotationAngleCardTitle), axis: (x: 0, y: 1, z: 0))
         .onTapGesture {
@@ -87,23 +87,6 @@ struct CardView: View {
                     Text(content)
                 }
             VStack {
-                HStack() {
-                    Spacer()
-                    Button {
-                    } label: {
-                        Image(systemName: "pencil")
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                    }
-                    .modifier(ButtonModify())
-                    Button {
-                    } label: {
-                        Image(systemName: "camera")
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                    }
-                    .modifier(ButtonModify())
-                }
                 Spacer()
                 HStack() {
                     Spacer()

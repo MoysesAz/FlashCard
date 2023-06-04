@@ -7,15 +7,13 @@
 
 import SwiftUI
 
-struct FormcCard: View {
+struct FormCard: View {
     @FetchRequest(sortDescriptors: []) var topics: FetchedResults<Topic>
     @Environment(\.managedObjectContext) var moc
 
     @State private var title: String = ""
     @State var content: String = "Content Card"
     @State var showingSheet: Bool
-
-
 
     var body: some View {
         NavigationView {
