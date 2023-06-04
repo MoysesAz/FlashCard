@@ -18,10 +18,12 @@ struct FormTopic: View {
     var body: some View {
         NavigationView {
             Form {
-                Section("Topic Information"){
-                    TextField("Topic Name", text: $topicName)
+                Section("Topic Name"){
+                    TextField("Enter Name", text: $topicName)
                         .padding()
-                    ColorPicker("Set color", selection: $bgColor)
+                }
+                Section("Color") {
+                    ColorPicker("Enter Color", selection: $bgColor)
                         .padding()
                 }
             }

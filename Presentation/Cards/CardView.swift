@@ -69,7 +69,7 @@ struct CardView: View {
         }
 
         .sheet(isPresented: $showingSheet) {
-            FormcCard(showingSheetFormCard: $showingSheet)
+            FormcCard(showingSheet: showingSheet)
         }
         .rotation3DEffect(.degrees(rotationAngleCardTitle), axis: (x: 0, y: 1, z: 0))
         .onTapGesture {

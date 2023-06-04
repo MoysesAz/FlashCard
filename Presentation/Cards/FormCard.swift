@@ -11,41 +11,42 @@ struct FormcCard: View {
     @FetchRequest(sortDescriptors: []) var topics: FetchedResults<Topic>
     @Environment(\.managedObjectContext) var moc
 
-    @State private var topicName: String = ""
-    @Binding var showingSheetFormCard: Bool
+    @State private var title: String = ""
+    @State var content: String = "Content Card"
+    @State var showingSheet: Bool
+
 
 
     var body: some View {
-        VStack {
+        NavigationView {
             Form {
-                TextField("Placeholder", text: $topicName)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding(.top, 100)
-                TextEditor(text: $topicName)
-            }
-
-            Spacer()
-            Button {
-                let newTopic = Topic(context: moc)
-                newTopic.id = UUID()
-                newTopic.name = topicName
-                do {
-                    try moc.save()
-                    showingSheetFormCard = false
-                } catch {
-                    print(error)
+                Section("Title Card"){
+                    TextField("Title Card", text: $title)
                 }
-            } label: {
-                HStack {
-                    Text("Send")
+                Section("Content Card") {
+                    TextEditor(text: $content)
+                        .frame(height: 100)
                 }
-                .fixedSize()
             }
-            .disabled(topicName == "" ? true : false)
-            .buttonStyle(.borderedProminent)
+            .navigationTitle("Form Card")
+            .toolbar {
+                Button {
+                    let newTopic = Topic(context: moc)
+                    newTopic.id = UUID()
+                    newTopic.name = title
+                    do {
+                        try moc.save()
+                        showingSheet = false
+                    } catch {
+                        print(error)
+                    }
+                }label: {
+                    Text("Save")
+                }
+                .disabled(title == "" ? true : false)
+            }
         }
     }
-
 }
 
 
