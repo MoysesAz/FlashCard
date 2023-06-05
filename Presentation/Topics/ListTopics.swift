@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Data
 
 struct ListTopics: View {
     @FetchRequest(sortDescriptors: []) var topics: FetchedResults<Topic>
@@ -17,12 +18,13 @@ struct ListTopics: View {
         List {
             ForEach(topics, id: \.self) { topic in
                 NavigationLink(topic.name ?? "Nil",
-                               destination: CardView()
+                               destination: ListCards(topic: topic)
                 )
             }
             .onDelete { topic in
                 showingAlert = true
                 toBeDeleted = topic.first
+
             }
             .alert(isPresented: $showingAlert) {
                 Alert(

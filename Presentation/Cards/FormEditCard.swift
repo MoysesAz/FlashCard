@@ -6,32 +6,39 @@
 //
 
 import SwiftUI
+import Data
 
-struct FormCard: View {
-    @FetchRequest(sortDescriptors: []) var topics: FetchedResults<Topic>
+struct FormEditCard: View {
     @Environment(\.managedObjectContext) var moc
-
-    @State private var title: String = ""
-    @State var content: String = "Content Card"
-    @State var showingSheet: Bool
+    var card: Card
+    @Binding var title: String
+    @Binding var content: String
+    @Binding var showingSheet: Bool
+    @State var title1: String = "title"
+    @State var content1: String = "content"
 
     var body: some View {
         NavigationView {
             Form {
                 Section("Title Card"){
-                    TextField("Title Card", text: $title)
+                    TextField("Title Card", text: $title1)
                 }
                 Section("Content Card") {
-                    TextEditor(text: $content)
+                    TextEditor(text: $content1)
                         .frame(height: 100)
                 }
+            }
+            .onAppear {
+                title1 = card.title!
+                content1 = card.content!
             }
             .navigationTitle("Form Card")
             .toolbar {
                 Button {
-                    let newTopic = Topic(context: moc)
-                    newTopic.id = UUID()
-                    newTopic.name = title
+                    card.title = title1
+                    card.content = content1
+                    title = title1
+                    content = content1
                     do {
                         try moc.save()
                         showingSheet = false

@@ -7,13 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		953E14CE2A2A23CB006F1BB1 /* TopicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BAC5EE2A29836A008D06E8 /* TopicModel.swift */; };
+		95169E082A2CCA9F00C45E55 /* Topic+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AEB9632A2CC9B100D9ED9B /* Topic+CoreDataClass.swift */; };
+		95169E092A2CCA9F00C45E55 /* Topic+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AEB9642A2CC9B100D9ED9B /* Topic+CoreDataProperties.swift */; };
+		95169E0A2A2CCA9F00C45E55 /* Card+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AEB9652A2CC9B100D9ED9B /* Card+CoreDataClass.swift */; };
+		95169E0B2A2CCA9F00C45E55 /* Card+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AEB9662A2CC9B100D9ED9B /* Card+CoreDataProperties.swift */; };
 		953E14CF2A2A2413006F1BB1 /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95C57E362A25311700D7565F /* Domain.framework */; };
 		953E14D02A2A2413006F1BB1 /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 95C57E362A25311700D7565F /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		953E14DB2A2A8FD0006F1BB1 /* ListTopics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953E14DA2A2A8FD0006F1BB1 /* ListTopics.swift */; };
 		953E14DD2A2A947D006F1BB1 /* FormTopic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953E14DC2A2A947D006F1BB1 /* FormTopic.swift */; };
-		955EE6DA2A2A13D700E451D5 /* Deck.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 955EE6D62A2A0F8D00E451D5 /* Deck.xcdatamodeld */; };
-		955EE6DC2A2A172A00E451D5 /* Deck.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 955EE6D62A2A0F8D00E451D5 /* Deck.xcdatamodeld */; };
+		95AAE91C2A2C20DC002CE9B8 /* Deck.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 95AAE9172A2C200D002CE9B8 /* Deck.xcdatamodeld */; };
+		95AEB96B2A2CC9BC00D9ED9B /* Card+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AEB9662A2CC9B100D9ED9B /* Card+CoreDataProperties.swift */; };
+		95AEB96C2A2CC9BC00D9ED9B /* Topic+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AEB9642A2CC9B100D9ED9B /* Topic+CoreDataProperties.swift */; };
+		95AEB96D2A2CC9BC00D9ED9B /* Topic+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AEB9632A2CC9B100D9ED9B /* Topic+CoreDataClass.swift */; };
+		95AEB96E2A2CC9BC00D9ED9B /* Card+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AEB9652A2CC9B100D9ED9B /* Card+CoreDataClass.swift */; };
 		95BAC5FD2A2987D1008D06E8 /* Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95BAC5F52A2987D1008D06E8 /* Data.framework */; };
 		95BAC6042A2987D1008D06E8 /* DataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BAC6032A2987D1008D06E8 /* DataTests.swift */; };
 		95BAC6152A298A8E008D06E8 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BAC6142A298A8E008D06E8 /* DataController.swift */; };
@@ -23,12 +29,13 @@
 		95BAC6252A298C11008D06E8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95BAC6242A298C11008D06E8 /* Preview Assets.xcassets */; };
 		95BAC62A2A298C62008D06E8 /* Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95BAC5F52A2987D1008D06E8 /* Data.framework */; };
 		95BAC62B2A298C62008D06E8 /* Data.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 95BAC5F52A2987D1008D06E8 /* Data.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		95C57E552A25314800D7565F /* addTopicProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C57E542A25314800D7565F /* addTopicProtocol.swift */; };
 		95C57E662A25396B00D7565F /* UseCases.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95C57E5E2A25396B00D7565F /* UseCases.framework */; };
-		95CF7CF12A2B9C3300C349C3 /* FormCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CF7CF02A2B9C3300C349C3 /* FormCard.swift */; };
+		95CF7CF12A2B9C3300C349C3 /* FormEditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CF7CF02A2B9C3300C349C3 /* FormEditCard.swift */; };
+		95DEDD112A2CDAF6000C40BE /* ListCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DEDD102A2CDAF6000C40BE /* ListCards.swift */; };
+		95DEDD132A2CDCA3000C40BE /* FormCreateCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DEDD122A2CDCA3000C40BE /* FormCreateCard.swift */; };
 		95E3F3932A2AE4E70026C09B /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E3F3922A2AE4E70026C09B /* CardView.swift */; };
-		95E3F39A2A2B78170026C09B /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E3F3992A2B78170026C09B /* CardModel.swift */; };
 		95E3F39E2A2B87960026C09B /* ButtonModify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E3F39D2A2B87960026C09B /* ButtonModify.swift */; };
+		95F553C32A2DF79100F6ED47 /* FrameCardModify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F553C22A2DF79100F6ED47 /* FrameCardModify.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,8 +87,11 @@
 /* Begin PBXFileReference section */
 		953E14DA2A2A8FD0006F1BB1 /* ListTopics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTopics.swift; sourceTree = "<group>"; };
 		953E14DC2A2A947D006F1BB1 /* FormTopic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTopic.swift; sourceTree = "<group>"; };
-		955EE6D72A2A0F8D00E451D5 /* MyDeck.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyDeck.xcdatamodel; sourceTree = "<group>"; };
-		95BAC5EE2A29836A008D06E8 /* TopicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicModel.swift; sourceTree = "<group>"; };
+		95AAE9182A2C200D002CE9B8 /* Deck.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Deck.xcdatamodel; sourceTree = "<group>"; };
+		95AEB9632A2CC9B100D9ED9B /* Topic+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Topic+CoreDataClass.swift"; sourceTree = "<group>"; };
+		95AEB9642A2CC9B100D9ED9B /* Topic+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Topic+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		95AEB9652A2CC9B100D9ED9B /* Card+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Card+CoreDataClass.swift"; sourceTree = "<group>"; };
+		95AEB9662A2CC9B100D9ED9B /* Card+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Card+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		95BAC5F52A2987D1008D06E8 /* Data.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Data.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95BAC5FC2A2987D1008D06E8 /* DataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DataTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		95BAC6032A2987D1008D06E8 /* DataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTests.swift; sourceTree = "<group>"; };
@@ -93,13 +103,14 @@
 		95BAC6222A298C11008D06E8 /* Presentation.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Presentation.entitlements; sourceTree = "<group>"; };
 		95BAC6242A298C11008D06E8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		95C57E362A25311700D7565F /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		95C57E542A25314800D7565F /* addTopicProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addTopicProtocol.swift; sourceTree = "<group>"; };
 		95C57E5E2A25396B00D7565F /* UseCases.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UseCases.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95C57E652A25396B00D7565F /* UseCasesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UseCasesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		95CF7CF02A2B9C3300C349C3 /* FormCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormCard.swift; sourceTree = "<group>"; };
+		95CF7CF02A2B9C3300C349C3 /* FormEditCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormEditCard.swift; sourceTree = "<group>"; };
+		95DEDD102A2CDAF6000C40BE /* ListCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCards.swift; sourceTree = "<group>"; };
+		95DEDD122A2CDCA3000C40BE /* FormCreateCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormCreateCard.swift; sourceTree = "<group>"; };
 		95E3F3922A2AE4E70026C09B /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
-		95E3F3992A2B78170026C09B /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
 		95E3F39D2A2B87960026C09B /* ButtonModify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonModify.swift; sourceTree = "<group>"; };
+		95F553C22A2DF79100F6ED47 /* FrameCardModify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameCardModify.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,13 +163,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		953E14D62A2A8F64006F1BB1 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
 		953E14D72A2A8F6E006F1BB1 /* Topics */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,24 +178,21 @@
 			children = (
 				95E3F39B2A2B877A0026C09B /* Modifys */,
 				95E3F3922A2AE4E70026C09B /* CardView.swift */,
-				95CF7CF02A2B9C3300C349C3 /* FormCard.swift */,
+				95CF7CF02A2B9C3300C349C3 /* FormEditCard.swift */,
+				95DEDD122A2CDCA3000C40BE /* FormCreateCard.swift */,
+				95DEDD102A2CDAF6000C40BE /* ListCards.swift */,
 			);
 			path = Cards;
-			sourceTree = "<group>";
-		};
-		95BAC5ED2A29835A008D06E8 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				95BAC5EE2A29836A008D06E8 /* TopicModel.swift */,
-				95E3F3992A2B78170026C09B /* CardModel.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		95BAC5F62A2987D1008D06E8 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				95BAC6132A2988A3008D06E8 /* Model */,
+				95AEB9632A2CC9B100D9ED9B /* Topic+CoreDataClass.swift */,
+				95AEB9642A2CC9B100D9ED9B /* Topic+CoreDataProperties.swift */,
+				95AEB9652A2CC9B100D9ED9B /* Card+CoreDataClass.swift */,
+				95AEB9662A2CC9B100D9ED9B /* Card+CoreDataProperties.swift */,
+				95AAE9172A2C200D002CE9B8 /* Deck.xcdatamodeld */,
 				95BAC6142A298A8E008D06E8 /* DataController.swift */,
 			);
 			path = Data;
@@ -205,21 +206,11 @@
 			path = DataTests;
 			sourceTree = "<group>";
 		};
-		95BAC6132A2988A3008D06E8 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				955EE6D62A2A0F8D00E451D5 /* Deck.xcdatamodeld */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		95BAC61B2A298C10008D06E8 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				95E3F39C2A2B87810026C09B /* Components */,
 				953E14D82A2A8F78006F1BB1 /* Cards */,
 				953E14D72A2A8F6E006F1BB1 /* Topics */,
-				953E14D62A2A8F64006F1BB1 /* Home */,
 				95BAC61C2A298C10008D06E8 /* PresentationApp.swift */,
 				95BAC6202A298C11008D06E8 /* Assets.xcassets */,
 				95BAC6222A298C11008D06E8 /* Presentation.entitlements */,
@@ -246,7 +237,6 @@
 		95C57E0E2A25293700D7565F = {
 			isa = PBXGroup;
 			children = (
-				95C57E372A25311700D7565F /* Domain */,
 				95BAC5F62A2987D1008D06E8 /* Data */,
 				95BAC6022A2987D1008D06E8 /* DataTests */,
 				95BAC61B2A298C10008D06E8 /* Presentation */,
@@ -268,28 +258,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		95C57E372A25311700D7565F /* Domain */ = {
-			isa = PBXGroup;
-			children = (
-				95BAC5ED2A29835A008D06E8 /* Model */,
-				95C57E542A25314800D7565F /* addTopicProtocol.swift */,
-			);
-			path = Domain;
-			sourceTree = "<group>";
-		};
 		95E3F39B2A2B877A0026C09B /* Modifys */ = {
 			isa = PBXGroup;
 			children = (
 				95E3F39D2A2B87960026C09B /* ButtonModify.swift */,
+				95F553C22A2DF79100F6ED47 /* FrameCardModify.swift */,
 			);
 			path = Modifys;
-			sourceTree = "<group>";
-		};
-		95E3F39C2A2B87810026C09B /* Components */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -540,8 +515,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				955EE6DC2A2A172A00E451D5 /* Deck.xcdatamodeld in Sources */,
+				95AEB96C2A2CC9BC00D9ED9B /* Topic+CoreDataProperties.swift in Sources */,
+				95AEB96E2A2CC9BC00D9ED9B /* Card+CoreDataClass.swift in Sources */,
 				95BAC6152A298A8E008D06E8 /* DataController.swift in Sources */,
+				95AEB96B2A2CC9BC00D9ED9B /* Card+CoreDataProperties.swift in Sources */,
+				95AEB96D2A2CC9BC00D9ED9B /* Topic+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -557,13 +535,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				955EE6DA2A2A13D700E451D5 /* Deck.xcdatamodeld in Sources */,
+				95169E082A2CCA9F00C45E55 /* Topic+CoreDataClass.swift in Sources */,
+				95DEDD112A2CDAF6000C40BE /* ListCards.swift in Sources */,
+				95169E092A2CCA9F00C45E55 /* Topic+CoreDataProperties.swift in Sources */,
+				95169E0A2A2CCA9F00C45E55 /* Card+CoreDataClass.swift in Sources */,
+				95169E0B2A2CCA9F00C45E55 /* Card+CoreDataProperties.swift in Sources */,
+				95AAE91C2A2C20DC002CE9B8 /* Deck.xcdatamodeld in Sources */,
 				953E14DB2A2A8FD0006F1BB1 /* ListTopics.swift in Sources */,
+				95DEDD132A2CDCA3000C40BE /* FormCreateCard.swift in Sources */,
 				953E14DD2A2A947D006F1BB1 /* FormTopic.swift in Sources */,
 				95E3F39E2A2B87960026C09B /* ButtonModify.swift in Sources */,
 				95BAC61F2A298C10008D06E8 /* TopicView.swift in Sources */,
 				95E3F3932A2AE4E70026C09B /* CardView.swift in Sources */,
-				95CF7CF12A2B9C3300C349C3 /* FormCard.swift in Sources */,
+				95CF7CF12A2B9C3300C349C3 /* FormEditCard.swift in Sources */,
+				95F553C32A2DF79100F6ED47 /* FrameCardModify.swift in Sources */,
 				95BAC61D2A298C10008D06E8 /* PresentationApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -572,9 +557,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95C57E552A25314800D7565F /* addTopicProtocol.swift in Sources */,
-				953E14CE2A2A23CB006F1BB1 /* TopicModel.swift in Sources */,
-				95E3F39A2A2B78170026C09B /* CardModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -633,7 +615,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
@@ -642,7 +624,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
@@ -675,7 +657,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
@@ -684,7 +666,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
@@ -768,10 +750,10 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Academy.Presentation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -808,10 +790,10 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Academy.Presentation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1212,13 +1194,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		955EE6D62A2A0F8D00E451D5 /* Deck.xcdatamodeld */ = {
+		95AAE9172A2C200D002CE9B8 /* Deck.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				955EE6D72A2A0F8D00E451D5 /* MyDeck.xcdatamodel */,
+				95AAE9182A2C200D002CE9B8 /* Deck.xcdatamodel */,
 			);
-			currentVersion = 955EE6D72A2A0F8D00E451D5 /* MyDeck.xcdatamodel */;
-			path = Deck.xcdatamodeld;
+			currentVersion = 95AAE9182A2C200D002CE9B8 /* Deck.xcdatamodel */;
+			name = Deck.xcdatamodeld;
+			path = ../Deck.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

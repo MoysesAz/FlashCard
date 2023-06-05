@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Data
 
 struct FormTopic: View {
     @FetchRequest(sortDescriptors: []) var topics: FetchedResults<Topic>
