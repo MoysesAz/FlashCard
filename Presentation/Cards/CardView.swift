@@ -6,12 +6,11 @@
 //
 
 import SwiftUI
+import Data
 
 struct CardView: View {
-    @FetchRequest(sortDescriptors: []) var cards: FetchedResults<Cards>
-    @Environment(\.managedObjectContext) var moc
-
-    var topic: String = "Topics"
+    var card: Card
+    var topic: String = "Cards"
     @State var title: String = "Title"
     @State var content: String = "Content"
     @State var rotationAngleCardTitle: CGFloat = 0
@@ -20,16 +19,18 @@ struct CardView: View {
     @State var opacityCardContent: CGFloat = 0
     @State var showingSheet: Bool = false
 
-
-
     var body: some View {
         ZStack {
             cardTitle
             cardContent
         }
+        .modifier(FrameCardModify())
+        .onAppear {
+            title = card.title!
+            content = card.content!
+        }
         .navigationTitle(topic)
         .navigationBarTitleDisplayMode(.inline)
-
     }
 
     var cardTitle: some View {
@@ -69,7 +70,7 @@ struct CardView: View {
         }
 
         .sheet(isPresented: $showingSheet) {
-            FormcCard(showingSheetFormCard: $showingSheet)
+            FormEditCard(card: card, title: $title, content: $content, showingSheet: $showingSheet)
         }
         .rotation3DEffect(.degrees(rotationAngleCardTitle), axis: (x: 0, y: 1, z: 0))
         .onTapGesture {
@@ -85,25 +86,10 @@ struct CardView: View {
                 .foregroundColor(.blue)
                 .overlay {
                     Text(content)
+                        .lineLimit(100)
+                        .padding(40)
                 }
             VStack {
-                HStack() {
-                    Spacer()
-                    Button {
-                    } label: {
-                        Image(systemName: "pencil")
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                    }
-                    .modifier(ButtonModify())
-                    Button {
-                    } label: {
-                        Image(systemName: "camera")
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                    }
-                    .modifier(ButtonModify())
-                }
                 Spacer()
                 HStack() {
                     Spacer()
@@ -144,11 +130,5 @@ struct CardView: View {
             opacityCardTitle = 1
             opacityCardContent = 0
         }
-    }
-}
-
-struct CardView_Previews: PreviewProvider {
-    static var previews: some View {
-        CardView()
     }
 }
