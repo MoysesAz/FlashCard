@@ -17,7 +17,7 @@ struct ListCards: View {
         NavigationStack {
             ScrollView {
                 ForEach(cards, id: \.self) { card in
-                    CardView(card: card)
+                        CardView(card: card)
                 }
             }
             .navigationTitle("Cards")

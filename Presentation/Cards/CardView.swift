@@ -86,6 +86,8 @@ struct CardView: View {
                 .foregroundColor(.blue)
                 .overlay {
                     Text(content)
+                        .lineLimit(100)
+                        .padding(40)
                 }
             VStack {
                 Spacer()
