@@ -6,10 +6,11 @@
 //
 
 import SwiftUI
+import Data
 
 struct ListCards: View {
-    @FetchRequest(sortDescriptors: []) var cards: FetchedResults<Card>
     @Environment(\.managedObjectContext) var moc
+    @State var cards: [Card] = []
     @State var showingSheet: Bool = false
     var topic: Topic
     
@@ -30,7 +31,7 @@ struct ListCards: View {
             }
         }
         .sheet(isPresented: $showingSheet) {
-            FormCreateCard(showingSheet: $showingSheet, topic: topic)
+//            FormCreateCard(showingSheet: $showingSheet, topic: topic)
         }
     }
 }

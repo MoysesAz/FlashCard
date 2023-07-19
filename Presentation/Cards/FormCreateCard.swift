@@ -8,13 +8,11 @@
 import SwiftUI
 
 struct FormCreateCard: View {
-    @FetchRequest(sortDescriptors: []) var card: FetchedResults<Card>
     @Environment(\.managedObjectContext) var moc
 
     @State private var title: String = ""
     @State var content: String = "Content Card"
     @Binding var showingSheet: Bool
-    var topic: Topic
 
     var body: some View {
         NavigationView {
@@ -30,17 +28,7 @@ struct FormCreateCard: View {
             .navigationTitle("Form Card")
             .toolbar {
                 Button {
-                    let newCard = Card(context: moc)
-                    newCard.relationship = topic
-                    newCard.id = UUID()
-                    newCard.title = title
-                    newCard.content = content
-                    do {
-                        try moc.save()
-                        showingSheet = false
-                    } catch {
-                        print(error)
-                    }
+                    
                 }label: {
                     Text("Save")
                 }

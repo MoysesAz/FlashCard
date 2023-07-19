@@ -19,4 +19,12 @@ public class DataController: ObservableObject {
         }
     }
 
+    public func save() {
+        do {
+            try container.viewContext.save()
+        } catch {
+            print(error)
+        }
+    }
 }
+

@@ -9,8 +9,7 @@ import SwiftUI
 import Data
 
 struct FormTopic: View {
-    @FetchRequest(sortDescriptors: []) var topics: FetchedResults<Topic>
-    @Environment(\.managedObjectContext) var moc
+    @ObservedObject var dataController = DataController.shared
 
     @State private var topicName: String = ""
     @Binding var showingSheet: Bool
@@ -31,15 +30,8 @@ struct FormTopic: View {
             .navigationTitle("Form Topic")
             .toolbar {
                 Button {
-                    let newTopic = Topic(context: moc)
-                    newTopic.id = UUID()
-                    newTopic.name = topicName
-                    do {
-                        try moc.save()
-                        showingSheet = false
-                    } catch {
-                        print(error)
-                    }
+                    dataController.createTopic(name: topicName)
+                    showingSheet = false
                 }label: {
                     Text("Save")
                 }

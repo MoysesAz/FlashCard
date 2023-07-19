@@ -24,6 +24,7 @@ struct TopicView: View {
                     }
                 }
         }
+        .id(showingSheet)
         .sheet(isPresented: $showingSheet) {
             FormTopic(showingSheet: $showingSheet)
         }

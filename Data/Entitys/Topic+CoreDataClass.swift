@@ -2,7 +2,7 @@
 //  Topic+CoreDataClass.swift
 //  Domain
 //
-//  Created by Moyses Miranda do Vale Azevedo on 04/06/23.
+//  Created by Moyses Miranda do Vale Azevedo on 19/07/23.
 //
 //
 

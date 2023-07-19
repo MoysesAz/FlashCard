@@ -2,7 +2,7 @@
 //  Card+CoreDataProperties.swift
 //  Domain
 //
-//  Created by Moyses Miranda do Vale Azevedo on 04/06/23.
+//  Created by Moyses Miranda do Vale Azevedo on 19/07/23.
 //
 //
 
@@ -16,10 +16,12 @@ extension Card {
         return NSFetchRequest<Card>(entityName: "Card")
     }
 
-    @NSManaged public var content: String?
-    @NSManaged public var id: UUID?
+    @NSManaged public var cardID: UUID
+    @NSManaged public var content: String
+    @NSManaged public var creationDate: Date
     @NSManaged public var title: String?
-    @NSManaged public var relationship: Topic?
+    @NSManaged public var subTopic: SubTopic?
+
 }
 
 extension Card : Identifiable {

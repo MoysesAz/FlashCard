@@ -29,8 +29,8 @@ struct FormEditCard: View {
                 }
             }
             .onAppear {
-                title1 = card.title!
-                content1 = card.content!
+//                title1 = card.title!
+//                content1 = card.content!
             }
             .navigationTitle("Form Card")
             .toolbar {
