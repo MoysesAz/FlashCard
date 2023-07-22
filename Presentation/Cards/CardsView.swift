@@ -1,0 +1,33 @@
+//
+//  ListCards.swift
+//  Presentation
+//
+//  Created by Moyses Miranda do Vale Azevedo on 04/06/23.
+//
+
+import SwiftUI
+import Data
+
+struct CardsView: View {
+    @ObservedObject var dataController = DataController.shared
+    @State var showingSheet: Bool = false
+    var subTopic: SubTopic
+    
+    var body: some View {
+        NavigationStack {
+            ListCards(subTopic: subTopic)
+            .navigationTitle("Cards")
+            .toolbar {
+                Button {
+                    showingSheet.toggle()
+                }label: {
+                    Image(systemName: "plus")
+                }
+            }
+        }
+        .id(showingSheet)
+        .sheet(isPresented: $showingSheet) {
+            FormCreateCard(showingSheet: $showingSheet, subTopic: subTopic)
+        }
+    }
+}

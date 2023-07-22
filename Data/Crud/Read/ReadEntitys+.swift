@@ -37,4 +37,14 @@ extension DataController {
             fatalError("Error in use fetch Cards \(error)")
         }
     }
+
+    public func getRestrictions() -> [Restrictions] {
+        let featchRequest: NSFetchRequest<Restrictions> = Restrictions.fetchRequest()
+        do {
+            let results = try container.viewContext.fetch(featchRequest)
+            return results
+        } catch {
+            fatalError("Error in use fetch Cards \(error)")
+        }
+    }
 }

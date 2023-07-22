@@ -21,7 +21,7 @@ extension DataController {
     }
 
     public func getSubTopicsByID(id: UUID) -> [SubTopic] {
-        let predicate = NSPredicate(format: "subTopicID == %@", id as CVarArg)
+        let predicate = NSPredicate(format: "subTopicsID == %@", id as CVarArg)
         let featchRequest: NSFetchRequest<SubTopic> = SubTopic.fetchRequest()
         featchRequest.predicate = predicate
         do {
@@ -43,5 +43,18 @@ extension DataController {
             fatalError("Error in use fetch CardByID \(error)")
         }
     }
+
+    public func getRestrictionsCardByID(id: UUID) -> [Restrictions] {
+        let predicate = NSPredicate(format: "restrictionsID == %@", id as CVarArg)
+        let featchRequest: NSFetchRequest<Restrictions> = Restrictions.fetchRequest()
+        featchRequest.predicate = predicate
+        do {
+            let results = try container.viewContext.fetch(featchRequest)
+            return results
+        } catch {
+            fatalError("Error in use fetch CardByID \(error)")
+        }
+    }
+
 
 }

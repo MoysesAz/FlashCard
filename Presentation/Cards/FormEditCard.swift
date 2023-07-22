@@ -9,7 +9,7 @@ import SwiftUI
 import Data
 
 struct FormEditCard: View {
-    @Environment(\.managedObjectContext) var moc
+    @ObservedObject var dataController = DataController.shared
     var card: Card
     @Binding var title: String
     @Binding var content: String
@@ -29,22 +29,16 @@ struct FormEditCard: View {
                 }
             }
             .onAppear {
-//                title1 = card.title!
-//                content1 = card.content!
+                title1 = card.title
+                content1 = card.content
             }
             .navigationTitle("Form Card")
             .toolbar {
                 Button {
-                    card.title = title1
-                    card.content = content1
                     title = title1
                     content = content1
-                    do {
-                        try moc.save()
-                        showingSheet = false
-                    } catch {
-                        print(error)
-                    }
+                    dataController.uploadCard(id: card.cardID, title: title1, content: content1)
+                    showingSheet = false
                 }label: {
                     Text("Save")
                 }

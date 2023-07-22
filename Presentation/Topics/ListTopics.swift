@@ -8,18 +8,20 @@
 import SwiftUI
 import Data
 
+
 struct ListTopics: View {
     @ObservedObject var dataController = DataController.shared
     @State var topics: [Topic] = []
     @State private var showingAlert = false
     @State private var toBeDeleted: Int?
+
     
     var body: some View {
         VStack {
             List {
                 ForEach(topics, id: \.self) { topic in
                     NavigationLink(topic.name,
-                                   destination: ListCards(topic: topic)
+                                   destination: SubTopicView(topic: topic)
                     )
                 }
                 .onDelete { topic in
@@ -32,9 +34,9 @@ struct ListTopics: View {
                         message: Text("O que devo escrever aqui!!!!"),
                         primaryButton: .destructive(Text("Delete")) {
                             guard let indexTopic = toBeDeleted  else { return }
-                            let topicID = topics[indexTopic].topicID
+                            let topic = topics[indexTopic]
                             topics.remove(at: indexTopic)
-                            dataController.deleteTopicByID(id: topicID)
+                            dataController.deleteTopic(topic: topic)
                         },
                         secondaryButton: .cancel{
                             showingAlert = false
@@ -44,7 +46,15 @@ struct ListTopics: View {
             }
         }
         .onAppear {
+            verification()
             topics = dataController.getTopics()
+        }
+    }
+
+    private func verification() {
+        let restrictions = dataController.getRestrictions()
+        if restrictions.count == 0 {
+            dataController.createRestrictions(topicLimit: 3, cardLimit: 0)
         }
     }
 }

@@ -10,7 +10,6 @@ import Data
 
 struct FormTopic: View {
     @ObservedObject var dataController = DataController.shared
-
     @State private var topicName: String = ""
     @Binding var showingSheet: Bool
     @State private var bgColor = Color.blue
@@ -30,15 +29,29 @@ struct FormTopic: View {
             .navigationTitle("Form Topic")
             .toolbar {
                 Button {
-                    dataController.createTopic(name: topicName)
-                    showingSheet = false
+                    if permissionToCreateTopic() {
+                        createTopic()
+                    } else {
+                        dataController.addTopicRestrictions()
+                        print("ganhou um topico")
+                    }
                 }label: {
                     Text("Save")
                 }
                 .disabled(topicName == "" ? true : false)
             }
         }
-
     }
-    
+
+    private func  createTopic() {
+        dataController.createTopic(name: topicName)
+        showingSheet = false
+        dataController.subTopicRestrictions()
+    }
+
+    private func permissionToCreateTopic() -> Bool {
+        let res = dataController.getRestrictions().first
+        guard let topicLimit = res?.topicLimit else {return true}
+        return topicLimit > 0 ? true : false
+    }
 }

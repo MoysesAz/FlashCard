@@ -1,21 +1,21 @@
 //
-//  ContentView.swift
+//  SubTopicView.swift
 //  Presentation
 //
-//  Created by Moyses Miranda do Vale Azevedo on 01/06/23.
+//  Created by Moyses Miranda do Vale Azevedo on 20/07/23.
 //
 
 import SwiftUI
-import UIKit
+import Data
 
-
-struct TopicView: View {
+struct SubTopicView: View {
     @State var showingSheet: Bool = false
-    
+    let topic: Topic
+
     var body: some View {
         NavigationStack {
-            ListTopics()
-                .navigationTitle("Topics")
+            ListSubTopics(topic: topic)
+                .navigationTitle("SubTopics")
                 .toolbar {
                     Button {
                         showingSheet.toggle()
@@ -26,8 +26,7 @@ struct TopicView: View {
         }
         .id(showingSheet)
         .sheet(isPresented: $showingSheet) {
-            FormTopic(showingSheet: $showingSheet)
+            FormSubTopic(showingSheet: $showingSheet, topic: topic)
         }
     }
 }
-

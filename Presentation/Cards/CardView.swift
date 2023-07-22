@@ -26,8 +26,8 @@ struct CardView: View {
         }
         .modifier(FrameCardModify())
         .onAppear {
-            title = card.title!
-//            content = card.content!
+            title = card.title
+            content = card.content
         }
         .navigationTitle(topic)
         .navigationBarTitleDisplayMode(.inline)
