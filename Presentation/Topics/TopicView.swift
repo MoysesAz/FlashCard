@@ -7,11 +7,12 @@
 
 import SwiftUI
 import UIKit
+import GoogleMobileAds
 
 
 struct TopicView: View {
     @State var showingSheet: Bool = false
-    
+
     var body: some View {
         NavigationStack {
             ListTopics()
@@ -29,5 +30,7 @@ struct TopicView: View {
             FormTopic(showingSheet: $showingSheet)
         }
     }
+
+
 }
 

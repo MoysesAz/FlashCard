@@ -49,7 +49,6 @@
 		95ECB87A2A69B17800D45148 /* PresentationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BAC61C2A298C10008D06E8 /* PresentationApp.swift */; };
 		95ECB87B2A69B18000D45148 /* Deck.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 95AAE9172A2C200D002CE9B8 /* Deck.xcdatamodeld */; };
 		95ECB87D2A69C9AA00D45148 /* ListCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ECB87C2A69C9AA00D45148 /* ListCards.swift */; };
-		95F2AF642A6C605D001C66BA /* newvclass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F2AF632A6C605D001C66BA /* newvclass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,7 +139,6 @@
 		95ECB8602A69B12E00D45148 /* SubTopics+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SubTopics+CoreDataClass.swift"; sourceTree = "<group>"; };
 		95ECB8612A69B12E00D45148 /* SubTopics+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SubTopics+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		95ECB87C2A69C9AA00D45148 /* ListCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCards.swift; sourceTree = "<group>"; };
-		95F2AF632A6C605D001C66BA /* newvclass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newvclass.swift; sourceTree = "<group>"; };
 		95F553C22A2DF79100F6ED47 /* FrameCardModify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameCardModify.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -218,6 +216,14 @@
 			path = Cards;
 			sourceTree = "<group>";
 		};
+		9595C6EC2A6DA39C00517554 /* Interstitial */ = {
+			isa = PBXGroup;
+			children = (
+				95C22C6A2A6B3E3E00BEB3C3 /* Interstitial.swift */,
+			);
+			path = Interstitial;
+			sourceTree = "<group>";
+		};
 		95BAC5F62A2987D1008D06E8 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -264,8 +270,7 @@
 		95C22C692A6B3E2E00BEB3C3 /* Ads */ = {
 			isa = PBXGroup;
 			children = (
-				95C22C6A2A6B3E3E00BEB3C3 /* Interstitial.swift */,
-				95F2AF632A6C605D001C66BA /* newvclass.swift */,
+				9595C6EC2A6DA39C00517554 /* Interstitial */,
 			);
 			path = Ads;
 			sourceTree = "<group>";
@@ -667,7 +672,6 @@
 				95ECB86E2A69B17800D45148 /* ButtonModify.swift in Sources */,
 				95ECB86F2A69B17800D45148 /* FrameCardModify.swift in Sources */,
 				95ECB8702A69B17800D45148 /* CardView.swift in Sources */,
-				95F2AF642A6C605D001C66BA /* newvclass.swift in Sources */,
 				95ECB8712A69B17800D45148 /* FormEditCard.swift in Sources */,
 				95ECB8722A69B17800D45148 /* FormCreateCard.swift in Sources */,
 				95ECB8732A69B17800D45148 /* CardsView.swift in Sources */,
@@ -891,12 +895,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Academy.Presentation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -934,12 +938,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Academy.Presentation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

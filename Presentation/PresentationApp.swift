@@ -10,11 +10,11 @@ import Data
 import GoogleMobileAds
 import UIKit
 
-
-
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        GADMobileAds.sharedInstance().start(completionHandler: nil)
+        DispatchQueue.global().async {
+            GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = [ "252c9b2d28fb4dbd719e823d6cf32c66" ]
+        }
         return true
     }
 }
