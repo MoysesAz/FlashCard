@@ -9,9 +9,7 @@ import SwiftUI
 import Data
 
 struct FormTopic: View {
-    @FetchRequest(sortDescriptors: []) var topics: FetchedResults<Topic>
-    @Environment(\.managedObjectContext) var moc
-
+    @ObservedObject var dataController = DataController.shared
     @State private var topicName: String = ""
     @Binding var showingSheet: Bool
     @State private var bgColor = Color.blue
@@ -31,14 +29,11 @@ struct FormTopic: View {
             .navigationTitle("Form Topic")
             .toolbar {
                 Button {
-                    let newTopic = Topic(context: moc)
-                    newTopic.id = UUID()
-                    newTopic.name = topicName
-                    do {
-                        try moc.save()
-                        showingSheet = false
-                    } catch {
-                        print(error)
+                    if permissionToCreateTopic() {
+                        createTopic()
+                    } else {
+                        dataController.addTopicRestrictions()
+                        print("ganhou um topico")
                     }
                 }label: {
                     Text("Save")
@@ -46,7 +41,17 @@ struct FormTopic: View {
                 .disabled(topicName == "" ? true : false)
             }
         }
-
     }
-    
+
+    private func  createTopic() {
+        dataController.createTopic(name: topicName)
+        showingSheet = false
+        dataController.subTopicRestrictions()
+    }
+
+    private func permissionToCreateTopic() -> Bool {
+        let res = dataController.getRestrictions().first
+        guard let topicLimit = res?.topicLimit else {return true}
+        return topicLimit > 0 ? true : false
+    }
 }

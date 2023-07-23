@@ -8,38 +8,53 @@
 import SwiftUI
 import Data
 
+
 struct ListTopics: View {
-    @FetchRequest(sortDescriptors: []) var topics: FetchedResults<Topic>
-    @Environment(\.managedObjectContext) var moc
+    @ObservedObject var dataController = DataController.shared
+    @State var topics: [Topic] = []
     @State private var showingAlert = false
     @State private var toBeDeleted: Int?
+
     
     var body: some View {
-        List {
-            ForEach(topics, id: \.self) { topic in
-                NavigationLink(topic.name ?? "Nil",
-                               destination: ListCards(topic: topic)
-                )
+        VStack {
+            List {
+                ForEach(topics, id: \.self) { topic in
+                    NavigationLink(topic.name,
+                                   destination: SubTopicView(topic: topic)
+                    )
+                }
+                .onDelete { topic in
+                    showingAlert = true
+                    toBeDeleted = topic.first!
+                }
+                .alert(isPresented: $showingAlert) {
+                    Alert(
+                        title: Text("Are you sure you want to delete this topic?"),
+                        message: Text("O que devo escrever aqui!!!!"),
+                        primaryButton: .destructive(Text("Delete")) {
+                            guard let indexTopic = toBeDeleted  else { return }
+                            let topic = topics[indexTopic]
+                            topics.remove(at: indexTopic)
+                            dataController.deleteTopic(topic: topic)
+                        },
+                        secondaryButton: .cancel{
+                            showingAlert = false
+                        }
+                    )
+                }
             }
-            .onDelete { topic in
-                showingAlert = true
-                toBeDeleted = topic.first
+        }
+        .onAppear {
+            verification()
+            topics = dataController.getTopics()
+        }
+    }
 
-            }
-            .alert(isPresented: $showingAlert) {
-                Alert(
-                    title: Text("Are you sure you want to delete this topic?"),
-                    message: Text("O que devo escrever aqui!!!!"),
-                    primaryButton: .destructive(Text("Delete")) {
-                        guard let indexTopic = toBeDeleted  else { return }
-                        moc.delete(topics[indexTopic])
-                        try? moc.save()
-                    },
-                    secondaryButton: .cancel{
-                        showingAlert = false
-                    }
-                )
-            }
+    private func verification() {
+        let restrictions = dataController.getRestrictions()
+        if restrictions.count == 0 {
+            dataController.createRestrictions(topicLimit: 3, cardLimit: 0)
         }
     }
 }

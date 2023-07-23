@@ -1,14 +1,72 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22E261" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Card" representedClassName=".Card" syncable="YES">
-        <attribute name="content" optional="YES" attributeType="String"/>
-        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
-        <attribute name="title" optional="YES" attributeType="String"/>
-        <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Topic"/>
+    <entity name="Card" representedClassName="Data.Card" syncable="YES">
+        <attribute name="cardID" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="content" attributeType="String"/>
+        <attribute name="creationDate" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="title" attributeType="String"/>
+        <relationship name="subTopic" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SubTopic" inverseName="cards" inverseEntity="SubTopic"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="title"/>
+            </uniquenessConstraint>
+            <uniquenessConstraint>
+                <constraint value="creationDate"/>
+            </uniquenessConstraint>
+            <uniquenessConstraint>
+                <constraint value="cardID"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
-    <entity name="Topic" representedClassName=".Topic" syncable="YES">
-        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
-        <attribute name="name" optional="YES" attributeType="String"/>
-        <relationship name="relationship" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Topic" inverseName="relationship" inverseEntity="Topic"/>
+    <entity name="Restrictions" representedClassName="Data.Restrictions" syncable="YES">
+        <attribute name="cardLimit" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="restrictionsID" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="topicLimit" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="restrictionsID"/>
+            </uniquenessConstraint>
+            <uniquenessConstraint>
+                <constraint value="topicLimit"/>
+            </uniquenessConstraint>
+            <uniquenessConstraint>
+                <constraint value="cardLimit"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="SubTopic" representedClassName="Data.SubTopic" syncable="YES">
+        <attribute name="creationDate" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="subTopicsID" attributeType="UUID" usesScalarValueType="NO"/>
+        <relationship name="cards" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Card" inverseName="subTopic" inverseEntity="Card"/>
+        <relationship name="topic" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Topic" inverseName="subTopics" inverseEntity="Topic"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="creationDate"/>
+            </uniquenessConstraint>
+            <uniquenessConstraint>
+                <constraint value="name"/>
+            </uniquenessConstraint>
+            <uniquenessConstraint>
+                <constraint value="subTopicsID"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="Topic" representedClassName="Data.Topic" syncable="YES">
+        <attribute name="creationDate" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="topicID" attributeType="UUID" usesScalarValueType="NO"/>
+        <relationship name="subTopics" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="SubTopic" inverseName="topic" inverseEntity="SubTopic"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="topicID"/>
+            </uniquenessConstraint>
+            <uniquenessConstraint>
+                <constraint value="name"/>
+            </uniquenessConstraint>
+            <uniquenessConstraint>
+                <constraint value="creationDate"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
 </model>

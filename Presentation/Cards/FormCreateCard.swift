@@ -6,15 +6,15 @@
 //
 
 import SwiftUI
+import Data
 
 struct FormCreateCard: View {
-    @FetchRequest(sortDescriptors: []) var card: FetchedResults<Card>
-    @Environment(\.managedObjectContext) var moc
-
+    @ObservedObject var dataController = DataController.shared
     @State private var title: String = ""
-    @State var content: String = "Content Card"
+    @State var content: String = ""
     @Binding var showingSheet: Bool
-    var topic: Topic
+    var subTopic: SubTopic
+
 
     var body: some View {
         NavigationView {
@@ -30,22 +30,29 @@ struct FormCreateCard: View {
             .navigationTitle("Form Card")
             .toolbar {
                 Button {
-                    let newCard = Card(context: moc)
-                    newCard.relationship = topic
-                    newCard.id = UUID()
-                    newCard.title = title
-                    newCard.content = content
-                    do {
-                        try moc.save()
-                        showingSheet = false
-                    } catch {
-                        print(error)
+                    if permissionToCreateCard() {
+                        createCard()
+                    } else {
+                        print("sem permissão")
                     }
+
                 }label: {
                     Text("Save")
                 }
                 .disabled(title == "" ? true : false)
             }
         }
+    }
+
+    private func  createCard() {
+        dataController.createCreateCard(title: title, content: content, subTopic: subTopic)
+        showingSheet = false
+        dataController.subCardRestrictions()
+    }
+
+    private func permissionToCreateCard() -> Bool {
+        let res = dataController.getRestrictions().first
+        guard let cardLimit = res?.cardLimit else {return true}
+        return cardLimit > 0 ? true : false
     }
 }
