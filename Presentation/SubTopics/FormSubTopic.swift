@@ -27,10 +27,13 @@ struct FormSubTopic: View {
                         .padding()
                 }
             }
+
             .navigationTitle("Form SubTopic")
             .toolbar {
                 Button {
-                    dataController.createCreateSubTopic(name: subTopicName, topic: topic)
+                    let color = bgColor.cgColor?.components?.encodeToString()
+                    guard let colorInString = color else { return }
+                    dataController.createCreateSubTopic(name: subTopicName, topic: topic, color: colorInString)
                     showingSheet = false
                 }label: {
                     Text("Save")

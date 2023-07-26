@@ -12,17 +12,13 @@ struct FormTopic: View {
     @ObservedObject var dataController = DataController.shared
     @State private var topicName: String = ""
     @Binding var showingSheet: Bool
-    @State private var bgColor = Color.blue
+    @Binding var showingStore: Bool
 
     var body: some View {
         NavigationView {
             Form {
                 Section("Topic Name"){
                     TextField("Enter Name", text: $topicName)
-                        .padding()
-                }
-                Section("Color") {
-                    ColorPicker("Enter Color", selection: $bgColor)
                         .padding()
                 }
             }
@@ -32,8 +28,8 @@ struct FormTopic: View {
                     if permissionToCreateTopic() {
                         createTopic()
                     } else {
-                        dataController.addTopicRestrictions()
-                        print("ganhou um topico")
+                        showingStore.toggle()
+                        showingSheet.toggle()
                     }
                 }label: {
                     Text("Save")
@@ -43,10 +39,10 @@ struct FormTopic: View {
         }
     }
 
-    private func  createTopic() {
+    private func createTopic() {
         dataController.createTopic(name: topicName)
         showingSheet = false
-        dataController.subTopicRestrictions()
+        dataController.subTopicRestrictions(number: 1)
     }
 
     private func permissionToCreateTopic() -> Bool {

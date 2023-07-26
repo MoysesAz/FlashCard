@@ -14,7 +14,6 @@ struct ListTopics: View {
     @State var topics: [Topic] = []
     @State private var showingAlert = false
     @State private var toBeDeleted: Int?
-
     
     var body: some View {
         VStack {
@@ -54,7 +53,7 @@ struct ListTopics: View {
     private func verification() {
         let restrictions = dataController.getRestrictions()
         if restrictions.count == 0 {
-            dataController.createRestrictions(topicLimit: 3, cardLimit: 0)
+            dataController.createRestrictions(topicLimit: 3, cardLimit: 10)
         }
     }
 }

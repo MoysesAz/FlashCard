@@ -32,8 +32,13 @@ final class Interstitial: NSObject, GADFullScreenContentDelegate {
 
     func showAd() {
         if self.interstitial != nil {
-            let root = UIApplication.shared.windows.first?.rootViewController
-            self.interstitial?.present(fromRootViewController: root!)
+            let firstScene = UIApplication.shared.connectedScenes.first as! UIWindowScene
+            let firstWindow = firstScene.windows.first!
+            let viewController = firstWindow.rootViewController!
+
+            DispatchQueue.main.async {
+                self.interstitial?.present(fromRootViewController: viewController)
+            }
             loadInterstitial()
         }else {
             print("No load Interstitial")

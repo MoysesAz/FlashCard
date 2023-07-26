@@ -12,6 +12,7 @@ import GoogleMobileAds
 
 struct TopicView: View {
     @State var showingSheet: Bool = false
+    @State var showingStore: Bool = false
 
     var body: some View {
         NavigationStack {
@@ -27,7 +28,10 @@ struct TopicView: View {
         }
         .id(showingSheet)
         .sheet(isPresented: $showingSheet) {
-            FormTopic(showingSheet: $showingSheet)
+            FormTopic(showingSheet: $showingSheet, showingStore: $showingStore)
+        }
+        .sheet(isPresented: $showingStore) {
+            StoreView()
         }
     }
 

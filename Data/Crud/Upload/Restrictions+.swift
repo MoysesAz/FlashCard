@@ -8,27 +8,27 @@
 import Foundation
 
 extension DataController {
-    public func addTopicRestrictions() {
+    public func addTopicRestrictions(number: Int16) {
         let newRestrictions = getRestrictions().first
         newRestrictions?.topicLimit += 1
         save()
     }
 
-    public func subTopicRestrictions() {
+    public func subTopicRestrictions(number: Int16) {
         let newRestrictions = getRestrictions().first
         newRestrictions?.topicLimit -= 1
         save()
     }
 
-    public func addCardRestrictions() {
+    public func addCardRestrictions(number: Int16) {
         let newRestrictions = getRestrictions().first
-        newRestrictions?.cardLimit += 1
+        newRestrictions?.cardLimit += number
         save()
     }
 
-    public func subCardRestrictions() {
+    public func subCardRestrictions(number: Int16) {
         let newRestrictions = getRestrictions().first
-        newRestrictions?.cardLimit -= 1
+        newRestrictions?.cardLimit -= number
         save()
     }
 }

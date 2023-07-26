@@ -35,6 +35,7 @@
         </uniquenessConstraints>
     </entity>
     <entity name="SubTopic" representedClassName="Data.SubTopic" syncable="YES">
+        <attribute name="color" optional="YES" attributeType="String"/>
         <attribute name="creationDate" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="name" attributeType="String"/>
         <attribute name="subTopicsID" attributeType="UUID" usesScalarValueType="NO"/>

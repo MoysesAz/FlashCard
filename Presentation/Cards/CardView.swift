@@ -18,6 +18,7 @@ struct CardView: View {
     @State var opacityCardTitle: CGFloat = 1
     @State var opacityCardContent: CGFloat = 0
     @State var showingSheet: Bool = false
+    @State var color: Color
 
     var body: some View {
         ZStack {
@@ -37,7 +38,7 @@ struct CardView: View {
         ZStack {
             RoundedRectangle(cornerRadius: 40)
                 .padding(20)
-                .foregroundColor(.blue)
+                .foregroundColor(color)
                 .overlay {
                     Text(title)
                 }
@@ -83,7 +84,7 @@ struct CardView: View {
         ZStack {
             RoundedRectangle(cornerRadius: 40)
                 .padding(20)
-                .foregroundColor(.blue)
+                .foregroundColor(color)
                 .overlay {
                     Text(content)
                         .lineLimit(100)

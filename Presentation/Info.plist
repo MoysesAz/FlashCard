@@ -11,6 +11,8 @@
 	</array>
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-1227764449813396~7812488633</string>
+	<key>NSAppTransportSecurity</key>
+	<dict/>
 	<key>SKAdNetworkItems</key>
 	<array>
 		<dict>

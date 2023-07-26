@@ -11,6 +11,7 @@ import Data
 struct CardsView: View {
     @ObservedObject var dataController = DataController.shared
     @State var showingSheet: Bool = false
+    @State var showingStore: Bool = false
     var subTopic: SubTopic
     
     var body: some View {
@@ -27,7 +28,11 @@ struct CardsView: View {
         }
         .id(showingSheet)
         .sheet(isPresented: $showingSheet) {
-            FormCreateCard(showingSheet: $showingSheet, subTopic: subTopic)
+            FormCreateCard(showingSheet: $showingSheet, showingStore: $showingStore, subTopic: subTopic)
         }
+        .sheet(isPresented: $showingStore) {
+            StoreView()
+        }
+
     }
 }
