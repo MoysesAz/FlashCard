@@ -6,15 +6,43 @@
 //
 
 import SwiftUI
+import Data
 
 struct FormEditSubTopic: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
+    @ObservedObject var dataController = DataController.shared
+    @State private var subTopicName: String = ""
+    @Binding var showingSheet: Bool
+    @State private var bgColor = Color.blue
+    let subTopic: SubTopic
 
-struct FormEditSubTopic_Previews: PreviewProvider {
-    static var previews: some View {
-        FormEditSubTopic()
+    var body: some View {
+        NavigationView {
+            Form {
+                Section("SubTopic Name"){
+                    TextField("Enter Name", text: $subTopicName)
+                        .padding()
+                }
+                Section("Color") {
+                    ColorPicker("Enter Color", selection: $bgColor)
+                        .padding()
+                }
+            }
+
+            .navigationTitle("Form SubTopic")
+            .toolbar {
+                Button {
+                    let colorInString = bgColor.cgColor?.components?.encodeToString()
+                    guard let colorInStringNoNil = colorInString else { return }
+                    dataController.uploadSubTopic(id: subTopic.subTopicsID, name: subTopicName, color: colorInStringNoNil)
+                    showingSheet = false
+                }label: {
+                    Text("Save")
+                }
+                .disabled(subTopicName == "" ? true : false)
+            }
+        }
+        .onAppear {
+            subTopicName = subTopic.name
+        }
     }
 }

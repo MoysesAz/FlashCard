@@ -11,6 +11,7 @@
 		9536D4C52A7048E7007CB897 /* SubTopic+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9536D4BF2A704480007CB897 /* SubTopic+CoreDataProperties.swift */; };
 		9536D4C82A717FB3007CB897 /* Double+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9536D4C72A717FB3007CB897 /* Double+.swift */; };
 		9536D4CA2A718019007CB897 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9536D4C92A718019007CB897 /* String+.swift */; };
+		9536D4CC2A71A472007CB897 /* FormEditSubTopic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9536D4CB2A71A472007CB897 /* FormEditSubTopic.swift */; };
 		953E14CF2A2A2413006F1BB1 /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95C57E362A25311700D7565F /* Domain.framework */; platformFilter = ios; };
 		953E14D02A2A2413006F1BB1 /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 95C57E362A25311700D7565F /* Domain.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		955954512A6ADA380094E082 /* Restrictions+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9559544E2A6ADA350094E082 /* Restrictions+CoreDataProperties.swift */; };
@@ -108,6 +109,7 @@
 		9536D4BF2A704480007CB897 /* SubTopic+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SubTopic+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		9536D4C72A717FB3007CB897 /* Double+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+.swift"; sourceTree = "<group>"; };
 		9536D4C92A718019007CB897 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		9536D4CB2A71A472007CB897 /* FormEditSubTopic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormEditSubTopic.swift; sourceTree = "<group>"; };
 		953E14DA2A2A8FD0006F1BB1 /* ListTopics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTopics.swift; sourceTree = "<group>"; };
 		953E14DC2A2A947D006F1BB1 /* FormTopic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTopic.swift; sourceTree = "<group>"; };
 		9559544D2A6ADA350094E082 /* Restrictions+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Restrictions+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -423,6 +425,7 @@
 				95ECB8562A69A12000D45148 /* SubTopicView.swift */,
 				95ECB8582A69A1CA00D45148 /* ListSubTopic.swift */,
 				95ECB85A2A69AED800D45148 /* FormSubTopic.swift */,
+				9536D4CB2A71A472007CB897 /* FormEditSubTopic.swift */,
 			);
 			path = SubTopics;
 			sourceTree = "<group>";
@@ -710,6 +713,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9536D4CC2A71A472007CB897 /* FormEditSubTopic.swift in Sources */,
 				95ECB87B2A69B18000D45148 /* Deck.xcdatamodeld in Sources */,
 				95ECB86E2A69B17800D45148 /* ButtonModify.swift in Sources */,
 				95ECB86F2A69B17800D45148 /* FrameCardModify.swift in Sources */,

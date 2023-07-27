@@ -10,6 +10,7 @@ import Data
 
 struct SubTopicView: View {
     @State var showingSheet: Bool = false
+
     let topic: Topic
 
     var body: some View {

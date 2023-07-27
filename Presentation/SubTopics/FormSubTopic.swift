@@ -27,7 +27,6 @@ struct FormSubTopic: View {
                         .padding()
                 }
             }
-
             .navigationTitle("Form SubTopic")
             .toolbar {
                 Button {

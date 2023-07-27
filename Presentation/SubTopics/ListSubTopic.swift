@@ -12,32 +12,39 @@ import Data
 struct ListSubTopics: View {
     @ObservedObject var dataController = DataController.shared
     @State var subTopics: [SubTopic] = []
-    @State private var showingAlert = false
-    @State private var toBeDeleted: Int?
+    @State private var showingAlert: Bool = false
+    @State private var showingEdit: Bool = false
+    @State private var pointer: Int?
     var topic: Topic
 
     var body: some View {
         VStack {
             List {
-                ForEach(subTopics, id: \.self) { subTopic in
-                    NavigationLink(subTopic.name,
-                                   destination: CardsView(subTopic: subTopic)
+                ForEach(subTopics.indices, id: \.self) { index in
+                    NavigationLink(subTopics[index].name,
+                                   destination: CardsView(subTopic: subTopics[index])
                     )
-                }
-                .onDelete { subTopic in
-                    showingAlert = true
-                    toBeDeleted = subTopic.first!
+                    .swipeActions {
+                        Button("Delete") {
+                            showingAlert = true
+                            pointer = index
+                        }
+                        .tint(.red)
+                        Button("Edit") {
+                            pointer = index
+                            showingEdit = true
+                        }
+                        .tint(.yellow)
+                    }
                 }
                 .alert(isPresented: $showingAlert) {
                     Alert(
                         title: Text("Are you sure you want to delete this topic?"),
                         message: Text("O que devo escrever aqui!!!!"),
                         primaryButton: .destructive(Text("Delete")) {
-                            guard let indexSubTopic = toBeDeleted  else { return }
-                            let subTopic = subTopics[indexSubTopic]
-                            subTopics.remove(at: indexSubTopic)
+                            let subTopic = subTopics[pointer!]
+                            subTopics.remove(at: pointer!)
                             dataController.deleteSubTopic(subTopic: subTopic)
-
                         },
                         secondaryButton: .cancel{
                             showingAlert = false
@@ -46,9 +53,13 @@ struct ListSubTopics: View {
                 }
             }
         }
+        .sheet(isPresented: $showingEdit) {
+            FormEditSubTopic(showingSheet: $showingEdit, subTopic: subTopics[pointer!])
+        }
         .onAppear {
             let array = topic.subTopics?.allObjects as! [SubTopic]
             subTopics = array
         }
+
     }
 }
