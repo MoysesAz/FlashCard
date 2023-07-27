@@ -23,11 +23,12 @@ struct ListSubTopics: View {
                 ForEach(subTopics.indices, id: \.self) { index in
                     NavigationLink(subTopics[index].name,
                                    destination: CardsView(subTopic: subTopics[index])
+
                     )
                     .swipeActions {
                         Button("Delete") {
-                            showingAlert = true
                             pointer = index
+                            showingAlert = true
                         }
                         .tint(.red)
                         Button("Edit") {
@@ -42,7 +43,7 @@ struct ListSubTopics: View {
                         title: Text("Are you sure you want to delete this topic?"),
                         message: Text("O que devo escrever aqui!!!!"),
                         primaryButton: .destructive(Text("Delete")) {
-                            let subTopic = subTopics[pointer!]
+                            let subTopic = subTopics[pointer ?? 0]
                             subTopics.remove(at: pointer!)
                             dataController.deleteSubTopic(subTopic: subTopic)
                         },
@@ -52,9 +53,10 @@ struct ListSubTopics: View {
                     )
                 }
             }
-        }
-        .sheet(isPresented: $showingEdit) {
-            FormEditSubTopic(showingSheet: $showingEdit, subTopic: subTopics[pointer!])
+            .sheet(isPresented: $showingEdit) {
+                FormEditSubTopic(showingSheet: $showingEdit, subTopic: subTopics[pointer ?? 0])
+            }
+
         }
         .onAppear {
             let array = topic.subTopics?.allObjects as! [SubTopic]
