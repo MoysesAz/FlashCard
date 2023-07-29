@@ -12,7 +12,7 @@ struct FormSubTopic: View {
     @ObservedObject var dataController = DataController.shared
     @State private var subTopicName: String = ""
     @Binding var showingSheet: Bool
-    @State private var bgColor: Color = Color.blue
+    @State private var colorCards: Color = Color(red: 0.2, green: 0.5, blue: 0.7)
     let topic: Topic
 
     var body: some View {
@@ -23,7 +23,7 @@ struct FormSubTopic: View {
                         .padding()
                 }
                 Section("Color") {
-                    ColorPicker("Enter Color", selection: $bgColor)
+                    ColorPicker("Enter Color", selection: $colorCards)
                         .padding()
                 }
             }
@@ -42,7 +42,7 @@ struct FormSubTopic: View {
 
 extension FormSubTopic {
     private func saveEvent() {
-        let color = bgColor.cgColor?.components?.encodeToString()
+        let color = colorCards.cgColor?.components?.encodeToString()
         guard let colorInString = color else { return }
         dataController.createCreateSubTopic(name: subTopicName, topic: topic, color: colorInString)
         showingSheet = false

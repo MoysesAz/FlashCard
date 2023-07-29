@@ -51,9 +51,6 @@ struct SubTopicView: View {
                         }
                     )
                 }
-                .sheet(isPresented: $showingEdit) {
-                    FormEditSubTopic(showingSheet: $showingEdit, colorCards: getColot(), subTopic: getSubTopic())
-                }
             }
             .onAppear {
                 loadSubTopics()
@@ -68,6 +65,9 @@ struct SubTopicView: View {
             }
         }
         .id(showingCreate || showingEdit)
+        .sheet(isPresented: $showingEdit) {
+            FormEditSubTopic(showingSheet: $showingEdit, colorCards: getColot(), subTopic: getSubTopic())
+        }
         .sheet(isPresented: $showingCreate) {
             FormSubTopic(showingSheet: $showingCreate, topic: topic)
         }
