@@ -17,7 +17,6 @@ extension [CGFloat] {
             return nil
         }
     }
-
 }
 
 

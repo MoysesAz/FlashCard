@@ -12,7 +12,7 @@ struct FormEditSubTopic: View {
     @ObservedObject var dataController = DataController.shared
     @State private var subTopicName: String = ""
     @Binding var showingSheet: Bool
-    @State private var bgColor = Color.blue
+    @State var colorCards: Color
     let subTopic: SubTopic
 
     var body: some View {
@@ -23,15 +23,14 @@ struct FormEditSubTopic: View {
                         .padding()
                 }
                 Section("Color") {
-                    ColorPicker("Enter Color", selection: $bgColor)
+                    ColorPicker("Enter Color", selection: $colorCards)
                         .padding()
                 }
             }
-
             .navigationTitle("Form SubTopic")
             .toolbar {
                 Button {
-                    let colorInString = bgColor.cgColor?.components?.encodeToString()
+                    let colorInString = colorCards.cgColor?.components?.encodeToString()
                     guard let colorInStringNoNil = colorInString else { return }
                     dataController.uploadSubTopic(id: subTopic.subTopicsID, name: subTopicName, color: colorInStringNoNil)
                     showingSheet = false

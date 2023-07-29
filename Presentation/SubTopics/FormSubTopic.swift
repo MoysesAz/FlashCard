@@ -12,7 +12,7 @@ struct FormSubTopic: View {
     @ObservedObject var dataController = DataController.shared
     @State private var subTopicName: String = ""
     @Binding var showingSheet: Bool
-    @State private var bgColor = Color.blue
+    @State private var bgColor: Color = Color.blue
     let topic: Topic
 
     var body: some View {
@@ -30,15 +30,25 @@ struct FormSubTopic: View {
             .navigationTitle("Form SubTopic")
             .toolbar {
                 Button {
-                    let color = bgColor.cgColor?.components?.encodeToString()
-                    guard let colorInString = color else { return }
-                    dataController.createCreateSubTopic(name: subTopicName, topic: topic, color: colorInString)
-                    showingSheet = false
+                    saveEvent()
                 }label: {
                     Text("Save")
                 }
-                .disabled(subTopicName == "" ? true : false)
+                .disabled(stateButtonSave())
             }
         }
+    }
+}
+
+extension FormSubTopic {
+    private func saveEvent() {
+        let color = bgColor.cgColor?.components?.encodeToString()
+        guard let colorInString = color else { return }
+        dataController.createCreateSubTopic(name: subTopicName, topic: topic, color: colorInString)
+        showingSheet = false
+    }
+
+    private func stateButtonSave() -> Bool {
+        subTopicName == "" ? true : false
     }
 }

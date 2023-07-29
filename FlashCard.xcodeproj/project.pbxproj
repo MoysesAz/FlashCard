@@ -48,7 +48,6 @@
 		95ECB8722A69B17800D45148 /* FormCreateCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DEDD122A2CDCA3000C40BE /* FormCreateCard.swift */; };
 		95ECB8732A69B17800D45148 /* CardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DEDD102A2CDAF6000C40BE /* CardsView.swift */; };
 		95ECB8742A69B17800D45148 /* SubTopicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ECB8562A69A12000D45148 /* SubTopicView.swift */; };
-		95ECB8752A69B17800D45148 /* ListSubTopic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ECB8582A69A1CA00D45148 /* ListSubTopic.swift */; };
 		95ECB8762A69B17800D45148 /* FormSubTopic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ECB85A2A69AED800D45148 /* FormSubTopic.swift */; };
 		95ECB8772A69B17800D45148 /* ListTopics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953E14DA2A2A8FD0006F1BB1 /* ListTopics.swift */; };
 		95ECB8782A69B17800D45148 /* TopicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BAC61E2A298C10008D06E8 /* TopicView.swift */; };
@@ -146,7 +145,6 @@
 		95ECB84F2A686EF500D45148 /* DeleteByID+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeleteByID+.swift"; sourceTree = "<group>"; };
 		95ECB8532A69995700D45148 /* Upload+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Upload+.swift"; sourceTree = "<group>"; };
 		95ECB8562A69A12000D45148 /* SubTopicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTopicView.swift; sourceTree = "<group>"; };
-		95ECB8582A69A1CA00D45148 /* ListSubTopic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSubTopic.swift; sourceTree = "<group>"; };
 		95ECB85A2A69AED800D45148 /* FormSubTopic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormSubTopic.swift; sourceTree = "<group>"; };
 		95ECB85C2A69B12E00D45148 /* Card+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Card+CoreDataClass.swift"; sourceTree = "<group>"; };
 		95ECB85D2A69B12E00D45148 /* Card+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Card+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -423,7 +421,6 @@
 			isa = PBXGroup;
 			children = (
 				95ECB8562A69A12000D45148 /* SubTopicView.swift */,
-				95ECB8582A69A1CA00D45148 /* ListSubTopic.swift */,
 				95ECB85A2A69AED800D45148 /* FormSubTopic.swift */,
 				9536D4CB2A71A472007CB897 /* FormEditSubTopic.swift */,
 			);
@@ -724,7 +721,6 @@
 				9595C6FB2A6E9BAE00517554 /* ItemStore.swift in Sources */,
 				95ECB8742A69B17800D45148 /* SubTopicView.swift in Sources */,
 				9536D4C82A717FB3007CB897 /* Double+.swift in Sources */,
-				95ECB8752A69B17800D45148 /* ListSubTopic.swift in Sources */,
 				95C22C6B2A6B3E3E00BEB3C3 /* Interstitial.swift in Sources */,
 				95ECB87D2A69C9AA00D45148 /* ListCards.swift in Sources */,
 				9595C6F92A6DF39900517554 /* Banner.swift in Sources */,
