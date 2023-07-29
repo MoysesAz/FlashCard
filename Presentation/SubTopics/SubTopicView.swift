@@ -28,24 +28,23 @@ struct SubTopicView: View {
                         .swipeActions {
                             Button("Delete") {
                                 deleteEvent(index)
-
                             }
                             .tint(.red)
                             Button("Edit") {
                                 editEvent(index)
                             }
-                            .tint(.yellow)
+                            .tint(.blue)
                         }
                     }
-
                 }
                 .alert(isPresented: $showingAlert) {
                     Alert(
                         title: Text("Are you sure you want to delete this topic?"),
                         message: Text("O que devo escrever aqui!!!!"),
                         primaryButton: .destructive(Text("Delete")) {
-                            subTopics.remove(at: pointer ?? -1)
-                            dataController.deleteSubTopic(subTopic: getSubTopic())
+                            let subTopic = getSubTopic()
+                            dataController.deleteSubTopic(subTopic: subTopic)
+                            loadSubTopics()
                         },
                         secondaryButton: .cancel{
                             showingAlert = false
@@ -57,9 +56,8 @@ struct SubTopicView: View {
                 }
             }
             .onAppear {
-                loadTopics()
+                loadSubTopics()
             }
-
             .navigationTitle("SubTopics")
             .toolbar {
                 Button {
@@ -69,7 +67,7 @@ struct SubTopicView: View {
                 }
             }
         }
-        .id(showingCreate)
+        .id(showingCreate || showingEdit)
         .sheet(isPresented: $showingCreate) {
             FormSubTopic(showingSheet: $showingCreate, topic: topic)
         }
@@ -77,7 +75,7 @@ struct SubTopicView: View {
 }
 
 extension SubTopicView {
-    private func loadTopics() {
+    private func loadSubTopics() {
         let array = topic.subTopics?.allObjects as! [SubTopic]
         subTopics = array
     }
@@ -100,6 +98,6 @@ extension SubTopicView {
 
     private func deleteEvent(_ value: Int) {
         pointer = value
-        showingEdit = true
+        showingAlert = true
     }
 }
