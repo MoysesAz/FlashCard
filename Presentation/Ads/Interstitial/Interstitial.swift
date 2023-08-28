@@ -5,8 +5,8 @@
 //  Created by Moyses Miranda do Vale Azevedo on 21/07/23.
 //
 
-
 import GoogleMobileAds
+import SwiftUI
 import UIKit
 
 final class Interstitial: NSObject, GADFullScreenContentDelegate {
@@ -18,32 +18,39 @@ final class Interstitial: NSObject, GADFullScreenContentDelegate {
 
     func loadInterstitial() {
         let request = GADRequest()
-        GADInterstitialAd.load(withAdUnitID: "ca-app-pub-1227764449813396/7626771908",
+        GADInterstitialAd.load(withAdUnitID: "ca-app-pub-3940256099942544/4411468910",
                                request: request,
-                               completionHandler: { [self] ad, error in
+                               completionHandler: { ad, error in
             if let error = error {
                 print("Failed to load interstitial ad with error: \(error.localizedDescription)")
                 return
             }
-            interstitial = ad
-            interstitial?.fullScreenContentDelegate = self
+            self.interstitial = ad
+            self.interstitial?.fullScreenContentDelegate = self
         })
     }
 
+    /*
+     po UIApplication.shared.connectedScenes.flatMap { ($0 as? UIWindowScene)?.windows ?? [] }
+     */
+
     func showAd() {
         if self.interstitial != nil {
-            let firstScene = UIApplication.shared.connectedScenes.first as! UIWindowScene
-            let firstWindow = firstScene.windows.first!
-            let viewController = firstWindow.rootViewController!
-
             DispatchQueue.main.async {
-                self.interstitial?.present(fromRootViewController: viewController)
+                let window = UIApplication
+                    .shared
+                    .connectedScenes
+                let lastWindow = window.flatMap{ ($0 as? UIWindowScene)?.windows ?? [] }.last
+                guard let rootViewController = lastWindow?.rootViewController else { return }
+                self.interstitial?.present(fromRootViewController: rootViewController)
             }
-            loadInterstitial()
-        }else {
+        } else {
             print("No load Interstitial")
             loadInterstitial()
         }
     }
-    
+
+    func removeLastWindow() {
+
+    }
 }

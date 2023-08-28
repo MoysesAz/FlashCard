@@ -9,7 +9,9 @@ import SwiftUI
 import Data
 
 struct CardView: View {
+    @ObservedObject var dataController = DataController.shared
     var card: Card
+    @Binding var delete: Bool
     var topic: String = "Cards"
     @State var title: String = "Title"
     @State var content: String = "Content"
@@ -49,6 +51,15 @@ struct CardView: View {
                         showingSheet = true
                     } label: {
                         Image(systemName: "pencil")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                    }
+                    .modifier(ButtonModify())
+                    Button {
+                        delete.toggle()
+                        dataController.deleteCard(card: card)
+                    } label: {
+                        Image(systemName: "trash")
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                     }

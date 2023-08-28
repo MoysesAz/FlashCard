@@ -43,7 +43,4 @@ extension DataController {
         newRestrictions.cardLimit = cardLimit
         save()
     }
-
-
-    
 }

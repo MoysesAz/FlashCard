@@ -10,14 +10,14 @@ import Data
 
 struct ListCards: View {
     let subTopic: SubTopic
+    @State var delete: Bool = true
     @State var cards: [Card] = []
     @State var color: Color = Color.blue
 
     var body: some View {
         ScrollView {
             ForEach(cards, id: \.self) { card in
-                CardView(card: card, color: color)
-
+                CardView(card: card, delete: $delete, color: color)
             }
             .onAppear {
                 let valueColor = subTopic.color.decodeCGFloatList()
@@ -27,6 +27,7 @@ struct ListCards: View {
                 cards = array
             }
         }
+        .id(delete)
     }
     
 }

@@ -12,20 +12,19 @@ import UIKit
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        GADMobileAds.sharedInstance().start(completionHandler: nil)
+        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers =
+            [ "2077ef9a63d2b398840261c8221a0c9b" ]
         return true
     }
 }
 
 @main
 struct PresentationApp: App {
-    @StateObject var dataController = DataController.shared
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     var body: some Scene {
         WindowGroup {
-            TopicView()
-                .environment(\.managedObjectContext, dataController.container.viewContext)
+           TopicView()
         }
     }
 }

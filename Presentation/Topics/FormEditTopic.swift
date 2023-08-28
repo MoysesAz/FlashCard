@@ -11,7 +11,7 @@ import Data
 struct FormEditTopic: View {
     @ObservedObject var dataController = DataController.shared
     @State private var topicName: String = ""
-    @Binding var showingSheet: Bool
+    @Binding var topicSheet: TopicSheet?
     let topic: Topic
 
     var body: some View {
@@ -41,6 +41,6 @@ struct FormEditTopic: View {
 extension FormEditTopic {
     private func saveEvent() {
         dataController.uploadTopic(id: topic.topicID, name: topicName)
-        showingSheet = false
+        topicSheet = nil
     }
 }

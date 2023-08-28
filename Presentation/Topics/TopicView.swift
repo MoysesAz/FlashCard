@@ -10,16 +10,18 @@ import UIKit
 import GoogleMobileAds
 import Data
 
+enum TopicSheet: Identifiable {
+    case showingSheetNewTopic, showingEdit, showingStore
+    var id: Int {
+        hashValue
+    }
+}
 
 struct TopicView: View {
-
     @ObservedObject var dataController = DataController.shared
     @State private var topics: [Topic] = []
-    @State private var showingSheet: Bool = false
-    @State private var showingStore: Bool = false
-    @State private var showingAlert = false
-    @State private var showingEdit = false
-
+    @State var topicSheet: TopicSheet?
+    @State private var showingAlert: Bool = false
     @State private var pointer: Int?
 
     var body: some View {
@@ -64,24 +66,24 @@ struct TopicView: View {
             .navigationTitle("Topics")
             .toolbar {
                 Button {
-                    showingSheet.toggle()
+                    topicSheet = .showingSheetNewTopic
                 }label: {
                     Image(systemName: "plus")
                 }
             }
         }
-        .id(showingSheet || showingEdit)
-        .sheet(isPresented: $showingEdit) {
-            FormEditTopic(showingSheet: $showingEdit, topic: getTopic())
-        }
-        .sheet(isPresented: $showingSheet) {
-            FormTopic(showingSheet: $showingSheet, showingStore: $showingStore)
-        }
-        .sheet(isPresented: $showingStore) {
-            StoreView()
+        .id(topicSheet)
+        .sheet(item: $topicSheet) { item in
+            switch item {
+            case .showingSheetNewTopic:
+                FormTopic(topicSheets: $topicSheet)
+            case .showingStore:
+                StoreView(topicSheet: $topicSheet)
+            case .showingEdit:
+                FormEditTopic(topicSheet: $topicSheet, topic: getTopic())
+            }
         }
     }
-
 }
 
 extension TopicView {
@@ -94,7 +96,7 @@ extension TopicView {
 
     private func editEvent(_ value: Int) {
         pointer = value
-        showingEdit = true
+        topicSheet = .showingEdit
     }
 
     private func deleteEvent(_ value: Int) {
