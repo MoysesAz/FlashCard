@@ -12,7 +12,7 @@ struct FormSubTopic: View {
     @ObservedObject var dataController = DataController.shared
     @State private var subTopicName: String = ""
     @Binding var subTopicsSheet: SubTopicSheet?
-    @State private var colorCards: Color = Color(red: 0.2, green: 0.5, blue: 0.7)
+    @State private var colorCards: Color = Color(red: 0.2, green: 0.42, blue: 0.87)
     let topic: Topic
 
     var body: some View {
