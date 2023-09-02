@@ -11,7 +11,7 @@ import Data
 struct FormSubTopic: View {
     @ObservedObject var dataController = DataController.shared
     @State private var subTopicName: String = ""
-    @Binding var showingSheet: Bool
+    @Binding var subTopicsSheet: SubTopicSheet?
     @State private var colorCards: Color = Color(red: 0.2, green: 0.5, blue: 0.7)
     let topic: Topic
 
@@ -45,7 +45,7 @@ extension FormSubTopic {
         let color = colorCards.cgColor?.components?.encodeToString()
         guard let colorInString = color else { return }
         dataController.createCreateSubTopic(name: subTopicName, topic: topic, color: colorInString)
-        showingSheet = false
+        subTopicsSheet = nil
     }
 
     private func stateButtonSave() -> Bool {

@@ -9,11 +9,10 @@ import SwiftUI
 import Data
 
 struct FormCreateCard: View {
+    @Binding var stateSheet: StateSheet?
     @ObservedObject var dataController = DataController.shared
     @State private var title: String = ""
     @State var content: String = ""
-    @Binding var showingSheet: Bool
-    @Binding var showingStore: Bool
     var subTopic: SubTopic
 
 
@@ -34,9 +33,7 @@ struct FormCreateCard: View {
                     if permissionToCreateCard() {
                         createCard()
                     } else {
-                        showingSheet = false
-                        showingStore = true
-                        print("sem permissão")
+                        stateSheet = .showingStore
                     }
 
                 }label: {
@@ -49,8 +46,8 @@ struct FormCreateCard: View {
 
     private func  createCard() {
         dataController.createCreateCard(title: title, content: content, subTopic: subTopic)
-        showingSheet = false
         dataController.subCardRestrictions(number: 1)
+        stateSheet = nil
     }
 
     private func permissionToCreateCard() -> Bool {

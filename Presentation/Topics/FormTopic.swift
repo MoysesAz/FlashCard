@@ -11,7 +11,7 @@ import Data
 struct FormTopic: View {
     @ObservedObject var dataController = DataController.shared
     @State private var topicName: String = ""
-    @Binding var topicSheets: TopicSheet?
+    @Binding var stateSheet: StateSheet?
 
 
     var body: some View {
@@ -28,7 +28,7 @@ struct FormTopic: View {
                     if permissionToCreateTopic() {
                         createTopic()
                     } else {
-                        topicSheets = .showingStore
+                        stateSheet = .showingStore
                     }
                 }label: {
                     Text("Save")
@@ -42,7 +42,7 @@ struct FormTopic: View {
     private func createTopic() {
         dataController.createTopic(name: topicName)
         dataController.subTopicRestrictions(number: 1)
-        topicSheets = nil
+        stateSheet = nil
     }
 
     private func permissionToCreateTopic() -> Bool {

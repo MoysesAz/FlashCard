@@ -9,41 +9,46 @@ import SwiftUI
 import Data
 
 struct StoreView: View {
-    let ads = Interstitial()
     @ObservedObject var dataController = DataController.shared
-    @Binding var topicSheet: TopicSheet?
+    @ObservedObject var viewController = ViewController()
+    @ObservedObject var interstitial: Interstitial =  Interstitial()
+    @Binding var stateSheet: StateSheet?
+    var interstitialView: InterstitialView?
 
     var body: some View {
+        GeometryReader { geometry in
                 VStack{
                     HStack{
-                        Button("tesxte") {
-                            addTopic()
-                        }
                         ButtonWatchVideo(award: "1 Topic", openAds: addTopic)
                         ButtonWatchVideo(award: "5 Cards", openAds: addCards)
                     }
+                    .padding()
                     .buttonBorderShape(.roundedRectangle)
                     .buttonStyle(.borderedProminent)
                     BannerView()
                         .navigationBarTitle("Título da Tela")
-                        .frame(height: 300)
+                        .frame(width: geometry.size.width * 0.8, height: geometry.size.height * 0.10)
+                        .background()
+                    interstitial.view
+                        .frame(width: .zero, height: .zero)
                 }
+
+        }
     }
 
     private func addTopic() {
-        ads.showAd()
-        //        dataController.addTopicRestrictions(number: 1)
+        interstitial.viewController.presentAd()
+        interstitial.viewController.completionEvent = {
+            dataController.addTopicRestrictions(number: 1)
+            stateSheet = .showingCreating
+        }
     }
 
     private func addCards() {
-        ads.showAd()
-
-        //        dataController.addCardRestrictions(number: 5)
+        interstitial.viewController.presentAd()
+        interstitial.viewController.completionEvent = {
+            dataController.addCardRestrictions(number: 5)
+            stateSheet = .showingCreating
+        }
     }
 }
-
-//struct StoreView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        StoreView()
-//    }
-//}

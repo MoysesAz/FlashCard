@@ -12,7 +12,6 @@ struct CardView: View {
     @ObservedObject var dataController = DataController.shared
     var card: Card
     @Binding var delete: Bool
-    var topic: String = "Cards"
     @State var title: String = "Title"
     @State var content: String = "Content"
     @State var rotationAngleCardTitle: CGFloat = 0
@@ -32,7 +31,6 @@ struct CardView: View {
             title = card.title
             content = card.content
         }
-        .navigationTitle(topic)
         .navigationBarTitleDisplayMode(.inline)
     }
 
@@ -43,6 +41,8 @@ struct CardView: View {
                 .foregroundColor(color)
                 .overlay {
                     Text(title)
+                        .font(.system(size: 36, weight: .bold))
+                        .foregroundColor(.white)
                 }
             VStack {
                 HStack() {
@@ -53,11 +53,11 @@ struct CardView: View {
                         Image(systemName: "pencil")
                             .resizable()
                             .aspectRatio(contentMode: .fill)
+
                     }
                     .modifier(ButtonModify())
                     Button {
                         delete.toggle()
-                        dataController.deleteCard(card: card)
                     } label: {
                         Image(systemName: "trash")
                             .resizable()
@@ -80,7 +80,18 @@ struct CardView: View {
             }
             .padding(40)
         }
-
+        .alert(isPresented: $delete) {
+            Alert(
+                title: Text("Important Warning"),
+                message: Text("Do you really want to delete this card?"),
+                primaryButton: .destructive(Text("Delete")) {
+                    dataController.deleteCard(card: card)
+                },
+                secondaryButton: .cancel {
+                    delete = false
+                }
+            )
+        }
         .sheet(isPresented: $showingSheet) {
             FormEditCard(card: card, title: $title, content: $content, showingSheet: $showingSheet)
         }
@@ -100,6 +111,8 @@ struct CardView: View {
                     Text(content)
                         .lineLimit(100)
                         .padding(40)
+                        .foregroundColor(.white)
+
                 }
             VStack {
                 Spacer()

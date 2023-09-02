@@ -8,13 +8,19 @@
 import SwiftUI
 import Data
 
+enum SubTopicSheet: Identifiable {
+    case showingSheetSubNewTopic, showingEditSubTopic
+    var id: Int {
+        hashValue
+    }
+}
+
 struct SubTopicView: View {
     @ObservedObject var dataController = DataController.shared
     let topic: Topic
     @State private var subTopics: [SubTopic] = []
-    @State private var showingCreate: Bool = false
+    @State private var subTopicsSheet: SubTopicSheet?
     @State private var showingAlert: Bool = false
-    @State private var showingEdit: Bool = false
     @State private var pointer: Int?
 
     var body: some View {
@@ -39,8 +45,8 @@ struct SubTopicView: View {
                 }
                 .alert(isPresented: $showingAlert) {
                     Alert(
-                        title: Text("Are you sure you want to delete this topic?"),
-                        message: Text("O que devo escrever aqui!!!!"),
+                        title: Text("Are you sure you want to delete the \(subTopics[pointer!].name) SubTopic?"),
+                        message: Text("if you delete that subtopic you will lose all cards that are linked to it!!!"),
                         primaryButton: .destructive(Text("Delete")) {
                             let subTopic = getSubTopic()
                             dataController.deleteSubTopic(subTopic: subTopic)
@@ -55,21 +61,25 @@ struct SubTopicView: View {
             .onAppear {
                 loadSubTopics()
             }
-            .navigationTitle("SubTopics")
+            .navigationTitle(topic.name)
             .toolbar {
                 Button {
-                    showingCreate.toggle()
+                    subTopicsSheet = .showingSheetSubNewTopic
                 }label: {
                     Image(systemName: "plus")
                 }
             }
         }
-        .id(showingCreate || showingEdit)
-        .sheet(isPresented: $showingEdit) {
-            FormEditSubTopic(showingSheet: $showingEdit, colorCards: getColot(), subTopic: getSubTopic())
-        }
-        .sheet(isPresented: $showingCreate) {
-            FormSubTopic(showingSheet: $showingCreate, topic: topic)
+        .id(subTopicsSheet)
+        .sheet(item: $subTopicsSheet) { item in
+            switch item {
+            case .showingSheetSubNewTopic:
+                FormSubTopic(subTopicsSheet: $subTopicsSheet, topic: topic)
+                    .presentationDetents([.medium])
+            case .showingEditSubTopic:
+                FormEditSubTopic(subTopicsSheet: $subTopicsSheet, colorCards: getColot(), subTopic: getSubTopic())
+                    .presentationDetents([.medium])
+            }
         }
     }
 }
@@ -93,7 +103,7 @@ extension SubTopicView {
 
     private func editEvent(_ value: Int) {
         pointer = value
-        showingEdit = true
+        subTopicsSheet = .showingEditSubTopic
     }
 
     private func deleteEvent(_ value: Int) {

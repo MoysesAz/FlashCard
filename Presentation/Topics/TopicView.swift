@@ -10,8 +10,8 @@ import UIKit
 import GoogleMobileAds
 import Data
 
-enum TopicSheet: Identifiable {
-    case showingSheetNewTopic, showingEdit, showingStore
+enum StateSheet: Identifiable {
+    case showingCreating, showingEdit, showingStore
     var id: Int {
         hashValue
     }
@@ -20,13 +20,12 @@ enum TopicSheet: Identifiable {
 struct TopicView: View {
     @ObservedObject var dataController = DataController.shared
     @State private var topics: [Topic] = []
-    @State var topicSheet: TopicSheet?
+    @State var stateSheet: StateSheet?
     @State private var showingAlert: Bool = false
     @State private var pointer: Int?
 
     var body: some View {
         NavigationStack {
-            VStack {
                 List {
                     ForEach(topics.indices, id: \.self) { index in
                         NavigationLink(topics[index].name,
@@ -45,8 +44,8 @@ struct TopicView: View {
                     }
                     .alert(isPresented: $showingAlert) {
                         Alert(
-                            title: Text("Are you sure you want to delete this topic?"),
-                            message: Text("O que devo escrever aqui!!!!"),
+                            title: Text("Are you sure you want to delete the \(topics[pointer!].name) topic?"),
+                            message: Text("If you delete it, you will lose the main topic, its subtopics, and all the cards within the subtopics!!!"),
                             primaryButton: .destructive(Text("Delete")) {
                                 let topic = getTopic()
                                 dataController.deleteTopic(topic: topic)
@@ -58,7 +57,6 @@ struct TopicView: View {
                         )
                     }
                 }
-            }
             .onAppear {
                 verification()
                 loadTopics()
@@ -66,23 +64,31 @@ struct TopicView: View {
             .navigationTitle("Topics")
             .toolbar {
                 Button {
-                    topicSheet = .showingSheetNewTopic
+                    stateSheet = .showingCreating
                 }label: {
                     Image(systemName: "plus")
                 }
             }
         }
-        .id(topicSheet)
-        .sheet(item: $topicSheet) { item in
+        .id(stateSheet)
+        .sheet(item: $stateSheet) { item in
             switch item {
-            case .showingSheetNewTopic:
-                FormTopic(topicSheets: $topicSheet)
+            case .showingCreating:
+                FormTopic(stateSheet: $stateSheet)
+                    .presentationDetents([.medium, .large])
+                    .presentationDragIndicator(.visible)
             case .showingStore:
-                StoreView(topicSheet: $topicSheet)
+                StoreView(stateSheet: $stateSheet)
+                    .presentationDetents([.medium, .large])
+                    .presentationDragIndicator(.visible)
+
             case .showingEdit:
-                FormEditTopic(topicSheet: $topicSheet, topic: getTopic())
+                FormEditTopic(stateSheet: $stateSheet, topic: getTopic())
+                    .presentationDetents([.medium, .large])
+                    .presentationDragIndicator(.visible)
             }
         }
+
     }
 }
 
@@ -96,7 +102,7 @@ extension TopicView {
 
     private func editEvent(_ value: Int) {
         pointer = value
-        topicSheet = .showingEdit
+        stateSheet = .showingEdit
     }
 
     private func deleteEvent(_ value: Int) {

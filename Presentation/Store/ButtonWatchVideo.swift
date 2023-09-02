@@ -13,22 +13,20 @@ struct ButtonWatchVideo: View {
 
     var body: some View {
         Rectangle()
-            .cornerRadius(60)
-            .border(.black, width: 2)
-            .foregroundColor(.white)
+            .stroke(style: .init(lineWidth: 1))
             .overlay {
                 VStack{
                     Spacer()
                     HStack{
-                        Text("Watch a video to get \(award)")
-                            .font(.system(size: 30))
+                        Text("\(award) +")
+                            .font(.system(size: 20))
                             .padding(10)
                     }
                     Spacer()
                     Button("WatchVideo") {
                         openAds()
                     }
-                    .padding(.bottom, 10)
+                    .padding(.bottom, 20)
                 }
             }
             .padding(10)

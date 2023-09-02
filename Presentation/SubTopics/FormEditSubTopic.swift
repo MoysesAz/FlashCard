@@ -11,7 +11,7 @@ import Data
 struct FormEditSubTopic: View {
     @ObservedObject var dataController = DataController.shared
     @State private var subTopicName: String = ""
-    @Binding var showingSheet: Bool
+    @Binding var subTopicsSheet: SubTopicSheet?
     @State var colorCards: Color
     let subTopic: SubTopic
 
@@ -33,7 +33,7 @@ struct FormEditSubTopic: View {
                     let colorInString = colorCards.cgColor?.components?.encodeToString()
                     guard let colorInStringNoNil = colorInString else { return }
                     dataController.uploadSubTopic(id: subTopic.subTopicsID, name: subTopicName, color: colorInStringNoNil)
-                    showingSheet = false
+                    subTopicsSheet = nil
                 }label: {
                     Text("Save")
                 }
