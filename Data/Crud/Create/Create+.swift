@@ -16,10 +16,11 @@ extension DataController {
         save()
     }
 
-    public func createCreateSubTopic(name: String, topic: Topic) {
+    public func createCreateSubTopic(name: String, topic: Topic, color: String) {
         let newSubTopic = SubTopic(context: container.viewContext)
         newSubTopic.subTopicsID = UUID()
         newSubTopic.topic = topic
+        newSubTopic.color = color
         newSubTopic.creationDate = Date()
         newSubTopic.name = name
         save()
@@ -42,7 +43,4 @@ extension DataController {
         newRestrictions.cardLimit = cardLimit
         save()
     }
-
-
-    
 }

@@ -14,9 +14,10 @@ extension DataController {
         save()
     }
 
-    public func uploadSubTopic(id: UUID, name: String) {
+    public func uploadSubTopic(id: UUID, name: String, color: String) {
         let subTopic = getSubTopicsByID(id: id).first
         subTopic?.name = name
+        subTopic?.color = color
         save()
     }
 

@@ -9,8 +9,9 @@ import SwiftUI
 import Data
 
 struct CardView: View {
+    @ObservedObject var dataController = DataController.shared
     var card: Card
-    var topic: String = "Cards"
+    @Binding var delete: Bool
     @State var title: String = "Title"
     @State var content: String = "Content"
     @State var rotationAngleCardTitle: CGFloat = 0
@@ -18,6 +19,7 @@ struct CardView: View {
     @State var opacityCardTitle: CGFloat = 1
     @State var opacityCardContent: CGFloat = 0
     @State var showingSheet: Bool = false
+    @State var color: Color
 
     var body: some View {
         ZStack {
@@ -29,7 +31,6 @@ struct CardView: View {
             title = card.title
             content = card.content
         }
-        .navigationTitle(topic)
         .navigationBarTitleDisplayMode(.inline)
     }
 
@@ -37,9 +38,11 @@ struct CardView: View {
         ZStack {
             RoundedRectangle(cornerRadius: 40)
                 .padding(20)
-                .foregroundColor(.blue)
+                .foregroundColor(color)
                 .overlay {
                     Text(title)
+                        .font(.system(size: 36, weight: .bold))
+                        .foregroundColor(.white)
                 }
             VStack {
                 HStack() {
@@ -48,6 +51,15 @@ struct CardView: View {
                         showingSheet = true
                     } label: {
                         Image(systemName: "pencil")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+
+                    }
+                    .modifier(ButtonModify())
+                    Button {
+                        delete.toggle()
+                    } label: {
+                        Image(systemName: "trash")
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                     }
@@ -68,7 +80,18 @@ struct CardView: View {
             }
             .padding(40)
         }
-
+        .alert(isPresented: $delete) {
+            Alert(
+                title: Text("Important Warning"),
+                message: Text("Do you really want to delete this card?"),
+                primaryButton: .destructive(Text("Delete")) {
+                    dataController.deleteCard(card: card)
+                },
+                secondaryButton: .cancel {
+                    delete = false
+                }
+            )
+        }
         .sheet(isPresented: $showingSheet) {
             FormEditCard(card: card, title: $title, content: $content, showingSheet: $showingSheet)
         }
@@ -83,11 +106,13 @@ struct CardView: View {
         ZStack {
             RoundedRectangle(cornerRadius: 40)
                 .padding(20)
-                .foregroundColor(.blue)
+                .foregroundColor(color)
                 .overlay {
                     Text(content)
                         .lineLimit(100)
                         .padding(40)
+                        .foregroundColor(.white)
+
                 }
             VStack {
                 Spacer()

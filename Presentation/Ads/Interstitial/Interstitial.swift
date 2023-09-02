@@ -1,44 +1,71 @@
 //
-//  Interstitial.swift
+//  InterstitialNEW.swift
 //  Presentation
 //
-//  Created by Moyses Miranda do Vale Azevedo on 21/07/23.
+//  Created by Moyses Miranda do Vale Azevedo on 29/08/23.
 //
 
-
-import GoogleMobileAds
 import UIKit
+import GoogleMobileAds
+import SwiftUI
 
-final class Interstitial: NSObject, GADFullScreenContentDelegate {
-    var interstitial: GADInterstitialAd?
-    override init() {
-        super.init()
-        self.loadInterstitial()
-    }
+class ViewController: UIViewController, GADFullScreenContentDelegate, ObservableObject {
+    @Published var ad: GADInterstitialAd?
+    var completionEvent: () -> () = {}
 
-    func loadInterstitial() {
+    override func viewDidLoad() {
+        super.viewDidLoad()
         let request = GADRequest()
-        GADInterstitialAd.load(withAdUnitID: "ca-app-pub-1227764449813396/7626771908",
+        GADInterstitialAd.load(withAdUnitID: "ca-app-pub-3940256099942544/4411468910",
                                request: request,
                                completionHandler: { [self] ad, error in
             if let error = error {
                 print("Failed to load interstitial ad with error: \(error.localizedDescription)")
                 return
             }
-            interstitial = ad
-            interstitial?.fullScreenContentDelegate = self
-        })
+            self.ad = ad
+            self.ad?.fullScreenContentDelegate = self
+        }
+        )
     }
 
-    func showAd() {
-        if self.interstitial != nil {
-            let root = UIApplication.shared.windows.first?.rootViewController
-            self.interstitial?.present(fromRootViewController: root!)
-            loadInterstitial()
-        }else {
-            print("No load Interstitial")
-            loadInterstitial()
-        }
+    func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
+        print("Ad did fail to present full screen content.")
     }
-    
+
+    func adWillPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+        print("Ad will present full screen content.")
+    }
+
+    func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+        print("Ad did dismiss full screen content.")
+        completionEvent()
+    }
+
+    func presentAd() {
+        guard let fullScreenAd = self.ad else {
+            return print("Ad wasn't ready")
+        }
+        fullScreenAd.present(fromRootViewController: self)
+    }
+}
+
+struct InterstitialView: UIViewControllerRepresentable {
+    var viewController: ViewController
+
+    func makeUIViewController(context: Context) -> some UIViewController {
+        return viewController
+    }
+
+    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+    }
+}
+
+class Interstitial: ObservableObject {
+    @ObservedObject var viewController: ViewController = ViewController()
+    var view: InterstitialView?
+
+    init() {
+        self.view = InterstitialView(viewController: self.viewController)
+    }
 }

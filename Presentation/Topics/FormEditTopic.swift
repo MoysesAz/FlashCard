@@ -1,21 +1,21 @@
 //
-//  FormTopic.swift
+//  FormEditTopic.swift
 //  Presentation
 //
-//  Created by Moyses Miranda do Vale Azevedo on 02/06/23.
+//  Created by Moyses Miranda do Vale Azevedo on 29/07/23.
 //
 
 import SwiftUI
 import Data
 
-struct FormTopic: View {
+struct FormEditTopic: View {
     @ObservedObject var dataController = DataController.shared
     @State private var topicName: String = ""
     @Binding var stateSheet: StateSheet?
-
+    let topic: Topic
 
     var body: some View {
-        NavigationStack{
+        NavigationView {
             Form {
                 Section("Topic Name"){
                     TextField("Enter Name", text: $topicName)
@@ -25,29 +25,22 @@ struct FormTopic: View {
             .navigationTitle("Form Topic")
             .toolbar {
                 Button {
-                    if permissionToCreateTopic() {
-                        createTopic()
-                    } else {
-                        stateSheet = .showingStore
-                    }
+                    saveEvent()
                 }label: {
                     Text("Save")
                 }
                 .disabled(topicName == "" ? true : false)
             }
-
+        }
+        .onAppear {
+            topicName = topic.name
         }
     }
+}
 
-    private func createTopic() {
-        dataController.createTopic(name: topicName)
-        dataController.subTopicRestrictions(number: 1)
+extension FormEditTopic {
+    private func saveEvent() {
+        dataController.uploadTopic(id: topic.topicID, name: topicName)
         stateSheet = nil
-    }
-
-    private func permissionToCreateTopic() -> Bool {
-        let res = dataController.getRestrictions().first
-        guard let topicLimit = res?.topicLimit else {return true}
-        return topicLimit > 0 ? true : false
     }
 }

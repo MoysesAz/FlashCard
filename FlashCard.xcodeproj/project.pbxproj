@@ -7,18 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		953E14CF2A2A2413006F1BB1 /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95C57E362A25311700D7565F /* Domain.framework */; };
-		953E14D02A2A2413006F1BB1 /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 95C57E362A25311700D7565F /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9536D4C42A7048E7007CB897 /* SubTopic+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9536D4BE2A704480007CB897 /* SubTopic+CoreDataClass.swift */; };
+		9536D4C52A7048E7007CB897 /* SubTopic+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9536D4BF2A704480007CB897 /* SubTopic+CoreDataProperties.swift */; };
+		9536D4C82A717FB3007CB897 /* Double+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9536D4C72A717FB3007CB897 /* Double+.swift */; };
+		9536D4CA2A718019007CB897 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9536D4C92A718019007CB897 /* String+.swift */; };
+		9536D4CC2A71A472007CB897 /* FormEditSubTopic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9536D4CB2A71A472007CB897 /* FormEditSubTopic.swift */; };
+		953E14CF2A2A2413006F1BB1 /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95C57E362A25311700D7565F /* Domain.framework */; platformFilter = ios; };
+		953E14D02A2A2413006F1BB1 /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 95C57E362A25311700D7565F /* Domain.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9548373E2A97EDDD005A70B4 /* UIAplication+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9548373D2A97EDDD005A70B4 /* UIAplication+.swift */; };
 		955954512A6ADA380094E082 /* Restrictions+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9559544E2A6ADA350094E082 /* Restrictions+CoreDataProperties.swift */; };
 		955954522A6ADA380094E082 /* Restrictions+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9559544D2A6ADA350094E082 /* Restrictions+CoreDataClass.swift */; };
 		955954542A6ADDC80094E082 /* Restrictions+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955954532A6ADDC80094E082 /* Restrictions+.swift */; };
+		95937A132A7590A400C2FDBA /* FormEditTopic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95937A122A7590A400C2FDBA /* FormEditTopic.swift */; };
+		9595C6F62A6DC8B400517554 /* StoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595C6F52A6DC8B400517554 /* StoreView.swift */; };
+		9595C6F92A6DF39900517554 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595C6F82A6DF39900517554 /* Banner.swift */; };
+		9595C6FD2A6EA2E100517554 /* ButtonWatchVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595C6FC2A6EA2E100517554 /* ButtonWatchVideo.swift */; };
+		95A9CB032A9E0C3A002808E3 /* Interstitial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A9CB022A9E0C3A002808E3 /* Interstitial.swift */; };
 		95BAC5FD2A2987D1008D06E8 /* Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95BAC5F52A2987D1008D06E8 /* Data.framework */; };
 		95BAC6042A2987D1008D06E8 /* DataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BAC6032A2987D1008D06E8 /* DataTests.swift */; };
 		95BAC6212A298C11008D06E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95BAC6202A298C11008D06E8 /* Assets.xcassets */; };
 		95BAC6252A298C11008D06E8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95BAC6242A298C11008D06E8 /* Preview Assets.xcassets */; };
-		95BAC62A2A298C62008D06E8 /* Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95BAC5F52A2987D1008D06E8 /* Data.framework */; };
-		95BAC62B2A298C62008D06E8 /* Data.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 95BAC5F52A2987D1008D06E8 /* Data.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		95C22C6B2A6B3E3E00BEB3C3 /* Interstitial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C22C6A2A6B3E3E00BEB3C3 /* Interstitial.swift */; };
+		95BAC62A2A298C62008D06E8 /* Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95BAC5F52A2987D1008D06E8 /* Data.framework */; platformFilter = ios; };
+		95BAC62B2A298C62008D06E8 /* Data.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 95BAC5F52A2987D1008D06E8 /* Data.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		95C22C732A6B7A2000BEB3C3 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 95C22C722A6B7A2000BEB3C3 /* GoogleMobileAds */; };
 		95C57E662A25396B00D7565F /* UseCases.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95C57E5E2A25396B00D7565F /* UseCases.framework */; };
 		95ECB8332A683DCB00D45148 /* Create+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ECB81F2A683AAB00D45148 /* Create+.swift */; };
@@ -32,8 +42,6 @@
 		95ECB8692A69B13D00D45148 /* Card+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ECB85D2A69B12E00D45148 /* Card+CoreDataProperties.swift */; };
 		95ECB86A2A69B13D00D45148 /* Topic+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ECB85E2A69B12E00D45148 /* Topic+CoreDataClass.swift */; };
 		95ECB86B2A69B13D00D45148 /* Topic+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ECB85F2A69B12E00D45148 /* Topic+CoreDataProperties.swift */; };
-		95ECB86C2A69B13D00D45148 /* SubTopics+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ECB8602A69B12E00D45148 /* SubTopics+CoreDataClass.swift */; };
-		95ECB86D2A69B13D00D45148 /* SubTopics+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ECB8612A69B12E00D45148 /* SubTopics+CoreDataProperties.swift */; };
 		95ECB86E2A69B17800D45148 /* ButtonModify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E3F39D2A2B87960026C09B /* ButtonModify.swift */; };
 		95ECB86F2A69B17800D45148 /* FrameCardModify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F553C22A2DF79100F6ED47 /* FrameCardModify.swift */; };
 		95ECB8702A69B17800D45148 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E3F3922A2AE4E70026C09B /* CardView.swift */; };
@@ -41,14 +49,11 @@
 		95ECB8722A69B17800D45148 /* FormCreateCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DEDD122A2CDCA3000C40BE /* FormCreateCard.swift */; };
 		95ECB8732A69B17800D45148 /* CardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DEDD102A2CDAF6000C40BE /* CardsView.swift */; };
 		95ECB8742A69B17800D45148 /* SubTopicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ECB8562A69A12000D45148 /* SubTopicView.swift */; };
-		95ECB8752A69B17800D45148 /* ListSubTopic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ECB8582A69A1CA00D45148 /* ListSubTopic.swift */; };
 		95ECB8762A69B17800D45148 /* FormSubTopic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ECB85A2A69AED800D45148 /* FormSubTopic.swift */; };
-		95ECB8772A69B17800D45148 /* ListTopics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953E14DA2A2A8FD0006F1BB1 /* ListTopics.swift */; };
 		95ECB8782A69B17800D45148 /* TopicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BAC61E2A298C10008D06E8 /* TopicView.swift */; };
 		95ECB8792A69B17800D45148 /* FormTopic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953E14DC2A2A947D006F1BB1 /* FormTopic.swift */; };
 		95ECB87A2A69B17800D45148 /* PresentationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BAC61C2A298C10008D06E8 /* PresentationApp.swift */; };
 		95ECB87B2A69B18000D45148 /* Deck.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 95AAE9172A2C200D002CE9B8 /* Deck.xcdatamodeld */; };
-		95ECB87D2A69C9AA00D45148 /* ListCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ECB87C2A69C9AA00D45148 /* ListCards.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,12 +103,22 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		953E14DA2A2A8FD0006F1BB1 /* ListTopics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTopics.swift; sourceTree = "<group>"; };
+		9536D4BE2A704480007CB897 /* SubTopic+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SubTopic+CoreDataClass.swift"; sourceTree = "<group>"; };
+		9536D4BF2A704480007CB897 /* SubTopic+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SubTopic+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		9536D4C72A717FB3007CB897 /* Double+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+.swift"; sourceTree = "<group>"; };
+		9536D4C92A718019007CB897 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		9536D4CB2A71A472007CB897 /* FormEditSubTopic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormEditSubTopic.swift; sourceTree = "<group>"; };
 		953E14DC2A2A947D006F1BB1 /* FormTopic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTopic.swift; sourceTree = "<group>"; };
+		9548373D2A97EDDD005A70B4 /* UIAplication+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAplication+.swift"; sourceTree = "<group>"; };
 		9559544D2A6ADA350094E082 /* Restrictions+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Restrictions+CoreDataClass.swift"; sourceTree = "<group>"; };
 		9559544E2A6ADA350094E082 /* Restrictions+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Restrictions+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		955954532A6ADDC80094E082 /* Restrictions+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Restrictions+.swift"; sourceTree = "<group>"; };
 		956AC7202A6B1C1900B61657 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95937A122A7590A400C2FDBA /* FormEditTopic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormEditTopic.swift; sourceTree = "<group>"; };
+		9595C6F52A6DC8B400517554 /* StoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreView.swift; sourceTree = "<group>"; };
+		9595C6F82A6DF39900517554 /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
+		9595C6FC2A6EA2E100517554 /* ButtonWatchVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWatchVideo.swift; sourceTree = "<group>"; };
+		95A9CB022A9E0C3A002808E3 /* Interstitial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interstitial.swift; sourceTree = "<group>"; };
 		95AAE9182A2C200D002CE9B8 /* Deck.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Deck.xcdatamodel; sourceTree = "<group>"; };
 		95BAC5F52A2987D1008D06E8 /* Data.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Data.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95BAC5FC2A2987D1008D06E8 /* DataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DataTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,7 +130,6 @@
 		95BAC6202A298C11008D06E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95BAC6222A298C11008D06E8 /* Presentation.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Presentation.entitlements; sourceTree = "<group>"; };
 		95BAC6242A298C11008D06E8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		95C22C6A2A6B3E3E00BEB3C3 /* Interstitial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interstitial.swift; sourceTree = "<group>"; };
 		95C57E362A25311700D7565F /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95C57E5E2A25396B00D7565F /* UseCases.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UseCases.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95C57E652A25396B00D7565F /* UseCasesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UseCasesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,15 +144,11 @@
 		95ECB84F2A686EF500D45148 /* DeleteByID+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeleteByID+.swift"; sourceTree = "<group>"; };
 		95ECB8532A69995700D45148 /* Upload+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Upload+.swift"; sourceTree = "<group>"; };
 		95ECB8562A69A12000D45148 /* SubTopicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTopicView.swift; sourceTree = "<group>"; };
-		95ECB8582A69A1CA00D45148 /* ListSubTopic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSubTopic.swift; sourceTree = "<group>"; };
 		95ECB85A2A69AED800D45148 /* FormSubTopic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormSubTopic.swift; sourceTree = "<group>"; };
 		95ECB85C2A69B12E00D45148 /* Card+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Card+CoreDataClass.swift"; sourceTree = "<group>"; };
 		95ECB85D2A69B12E00D45148 /* Card+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Card+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		95ECB85E2A69B12E00D45148 /* Topic+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Topic+CoreDataClass.swift"; sourceTree = "<group>"; };
 		95ECB85F2A69B12E00D45148 /* Topic+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Topic+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		95ECB8602A69B12E00D45148 /* SubTopics+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SubTopics+CoreDataClass.swift"; sourceTree = "<group>"; };
-		95ECB8612A69B12E00D45148 /* SubTopics+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SubTopics+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		95ECB87C2A69C9AA00D45148 /* ListCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCards.swift; sourceTree = "<group>"; };
 		95F553C22A2DF79100F6ED47 /* FrameCardModify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameCardModify.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -193,12 +203,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9536D4C62A717DF1007CB897 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				9536D4C72A717FB3007CB897 /* Double+.swift */,
+				9536D4C92A718019007CB897 /* String+.swift */,
+				9548373D2A97EDDD005A70B4 /* UIAplication+.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		953E14D72A2A8F6E006F1BB1 /* Topics */ = {
 			isa = PBXGroup;
 			children = (
-				953E14DA2A2A8FD0006F1BB1 /* ListTopics.swift */,
 				95BAC61E2A298C10008D06E8 /* TopicView.swift */,
 				953E14DC2A2A947D006F1BB1 /* FormTopic.swift */,
+				95937A122A7590A400C2FDBA /* FormEditTopic.swift */,
 			);
 			path = Topics;
 			sourceTree = "<group>";
@@ -211,7 +231,6 @@
 				95CF7CF02A2B9C3300C349C3 /* FormEditCard.swift */,
 				95DEDD122A2CDCA3000C40BE /* FormCreateCard.swift */,
 				95DEDD102A2CDAF6000C40BE /* CardsView.swift */,
-				95ECB87C2A69C9AA00D45148 /* ListCards.swift */,
 			);
 			path = Cards;
 			sourceTree = "<group>";
@@ -219,9 +238,26 @@
 		9595C6EC2A6DA39C00517554 /* Interstitial */ = {
 			isa = PBXGroup;
 			children = (
-				95C22C6A2A6B3E3E00BEB3C3 /* Interstitial.swift */,
+				95A9CB022A9E0C3A002808E3 /* Interstitial.swift */,
 			);
 			path = Interstitial;
+			sourceTree = "<group>";
+		};
+		9595C6F42A6DC8A100517554 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				9595C6F52A6DC8B400517554 /* StoreView.swift */,
+				9595C6FC2A6EA2E100517554 /* ButtonWatchVideo.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		9595C6F72A6DF38900517554 /* Banner */ = {
+			isa = PBXGroup;
+			children = (
+				9595C6F82A6DF39900517554 /* Banner.swift */,
+			);
+			path = Banner;
 			sourceTree = "<group>";
 		};
 		95BAC5F62A2987D1008D06E8 /* Data */ = {
@@ -246,9 +282,11 @@
 		95BAC61B2A298C10008D06E8 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				95C22C692A6B3E2E00BEB3C3 /* Ads */,
+				95D40B262A9FF37D00EDFBD0 /* Utils */,
 				956AC7202A6B1C1900B61657 /* Info.plist */,
+				95C22C692A6B3E2E00BEB3C3 /* Ads */,
 				953E14D82A2A8F78006F1BB1 /* Cards */,
+				9595C6F42A6DC8A100517554 /* Store */,
 				95ECB8552A69A10A00D45148 /* SubTopics */,
 				953E14D72A2A8F6E006F1BB1 /* Topics */,
 				95BAC61C2A298C10008D06E8 /* PresentationApp.swift */,
@@ -270,6 +308,7 @@
 		95C22C692A6B3E2E00BEB3C3 /* Ads */ = {
 			isa = PBXGroup;
 			children = (
+				9595C6F72A6DF38900517554 /* Banner */,
 				9595C6EC2A6DA39C00517554 /* Interstitial */,
 			);
 			path = Ads;
@@ -306,6 +345,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		95D40B262A9FF37D00EDFBD0 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				9536D4C62A717DF1007CB897 /* Extension */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		95E3F39B2A2B877A0026C09B /* Modifys */ = {
 			isa = PBXGroup;
 			children = (
@@ -329,14 +376,14 @@
 		95ECB81D2A6824E600D45148 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				9536D4BE2A704480007CB897 /* SubTopic+CoreDataClass.swift */,
+				9536D4BF2A704480007CB897 /* SubTopic+CoreDataProperties.swift */,
 				9559544D2A6ADA350094E082 /* Restrictions+CoreDataClass.swift */,
 				9559544E2A6ADA350094E082 /* Restrictions+CoreDataProperties.swift */,
 				95ECB85C2A69B12E00D45148 /* Card+CoreDataClass.swift */,
 				95ECB85D2A69B12E00D45148 /* Card+CoreDataProperties.swift */,
 				95ECB85E2A69B12E00D45148 /* Topic+CoreDataClass.swift */,
 				95ECB85F2A69B12E00D45148 /* Topic+CoreDataProperties.swift */,
-				95ECB8602A69B12E00D45148 /* SubTopics+CoreDataClass.swift */,
-				95ECB8612A69B12E00D45148 /* SubTopics+CoreDataProperties.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -379,8 +426,8 @@
 			isa = PBXGroup;
 			children = (
 				95ECB8562A69A12000D45148 /* SubTopicView.swift */,
-				95ECB8582A69A1CA00D45148 /* ListSubTopic.swift */,
 				95ECB85A2A69AED800D45148 /* FormSubTopic.swift */,
+				9536D4CB2A71A472007CB897 /* FormEditSubTopic.swift */,
 			);
 			path = SubTopics;
 			sourceTree = "<group>";
@@ -637,13 +684,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9536D4C42A7048E7007CB897 /* SubTopic+CoreDataClass.swift in Sources */,
+				9536D4C52A7048E7007CB897 /* SubTopic+CoreDataProperties.swift in Sources */,
 				95ECB8682A69B13D00D45148 /* Card+CoreDataClass.swift in Sources */,
 				955954542A6ADDC80094E082 /* Restrictions+.swift in Sources */,
 				95ECB8692A69B13D00D45148 /* Card+CoreDataProperties.swift in Sources */,
 				95ECB86A2A69B13D00D45148 /* Topic+CoreDataClass.swift in Sources */,
 				95ECB86B2A69B13D00D45148 /* Topic+CoreDataProperties.swift in Sources */,
-				95ECB86C2A69B13D00D45148 /* SubTopics+CoreDataClass.swift in Sources */,
-				95ECB86D2A69B13D00D45148 /* SubTopics+CoreDataProperties.swift in Sources */,
 				955954512A6ADA380094E082 /* Restrictions+CoreDataProperties.swift in Sources */,
 				95ECB8502A686EF500D45148 /* DeleteByID+.swift in Sources */,
 				95ECB84C2A685D7100D45148 /* ReadEntitys+.swift in Sources */,
@@ -668,6 +715,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9536D4CC2A71A472007CB897 /* FormEditSubTopic.swift in Sources */,
 				95ECB87B2A69B18000D45148 /* Deck.xcdatamodeld in Sources */,
 				95ECB86E2A69B17800D45148 /* ButtonModify.swift in Sources */,
 				95ECB86F2A69B17800D45148 /* FrameCardModify.swift in Sources */,
@@ -676,11 +724,15 @@
 				95ECB8722A69B17800D45148 /* FormCreateCard.swift in Sources */,
 				95ECB8732A69B17800D45148 /* CardsView.swift in Sources */,
 				95ECB8742A69B17800D45148 /* SubTopicView.swift in Sources */,
-				95ECB8752A69B17800D45148 /* ListSubTopic.swift in Sources */,
-				95C22C6B2A6B3E3E00BEB3C3 /* Interstitial.swift in Sources */,
-				95ECB87D2A69C9AA00D45148 /* ListCards.swift in Sources */,
+				95A9CB032A9E0C3A002808E3 /* Interstitial.swift in Sources */,
+				9548373E2A97EDDD005A70B4 /* UIAplication+.swift in Sources */,
+				9536D4C82A717FB3007CB897 /* Double+.swift in Sources */,
+				9595C6F92A6DF39900517554 /* Banner.swift in Sources */,
+				9595C6F62A6DC8B400517554 /* StoreView.swift in Sources */,
+				95937A132A7590A400C2FDBA /* FormEditTopic.swift in Sources */,
 				95ECB8762A69B17800D45148 /* FormSubTopic.swift in Sources */,
-				95ECB8772A69B17800D45148 /* ListTopics.swift in Sources */,
+				9595C6FD2A6EA2E100517554 /* ButtonWatchVideo.swift in Sources */,
+				9536D4CA2A718019007CB897 /* String+.swift in Sources */,
 				95ECB8782A69B17800D45148 /* TopicView.swift in Sources */,
 				95ECB8792A69B17800D45148 /* FormTopic.swift in Sources */,
 				95ECB87A2A69B17800D45148 /* PresentationApp.swift in Sources */,
@@ -713,6 +765,7 @@
 /* Begin PBXTargetDependency section */
 		953E14D22A2A2413006F1BB1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
+			platformFilter = ios;
 			target = 95C57E352A25311700D7565F /* Domain */;
 			targetProxy = 953E14D12A2A2413006F1BB1 /* PBXContainerItemProxy */;
 		};
@@ -723,6 +776,7 @@
 		};
 		95BAC62D2A298C62008D06E8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
+			platformFilter = ios;
 			target = 95BAC5F42A2987D1008D06E8 /* Data */;
 			targetProxy = 95BAC62C2A298C62008D06E8 /* PBXContainerItemProxy */;
 		};
@@ -766,11 +820,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = auto;
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -808,10 +864,12 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = auto;
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -825,16 +883,18 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 35GM6XG62S;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
-				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Academy.DataTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FlashCard.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FlashCard";
 			};
 			name = Debug;
@@ -847,16 +907,18 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 35GM6XG62S;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
-				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Academy.DataTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FlashCard.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FlashCard";
 			};
 			name = Release;
@@ -884,8 +946,8 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -927,8 +989,8 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -1082,7 +1144,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
@@ -1090,11 +1152,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = auto;
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1124,7 +1188,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
@@ -1132,10 +1196,12 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = auto;
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1164,7 +1230,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
@@ -1172,12 +1238,12 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = auto;
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1206,7 +1272,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
@@ -1214,12 +1280,12 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = auto;
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1232,16 +1298,18 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 35GM6XG62S;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
-				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Academy.UseCasesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FlashCard.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FlashCard";
 			};
 			name = Debug;
@@ -1253,16 +1321,18 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 35GM6XG62S;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
-				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Academy.UseCasesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FlashCard.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FlashCard";
 			};
 			name = Release;

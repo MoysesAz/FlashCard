@@ -1,19 +1,19 @@
 //
-//  SubTopicForms.swift
+//  FormEditSubTopic.swift
 //  Presentation
 //
-//  Created by Moyses Miranda do Vale Azevedo on 20/07/23.
+//  Created by Moyses Miranda do Vale Azevedo on 26/07/23.
 //
 
 import SwiftUI
 import Data
 
-struct FormSubTopic: View {
+struct FormEditSubTopic: View {
     @ObservedObject var dataController = DataController.shared
     @State private var subTopicName: String = ""
     @Binding var subTopicsSheet: SubTopicSheet?
-    @State private var colorCards: Color = Color(red: 0.2, green: 0.5, blue: 0.7)
-    let topic: Topic
+    @State var colorCards: Color
+    let subTopic: SubTopic
 
     var body: some View {
         NavigationView {
@@ -30,25 +30,18 @@ struct FormSubTopic: View {
             .navigationTitle("Form SubTopic")
             .toolbar {
                 Button {
-                    saveEvent()
+                    let colorInString = colorCards.cgColor?.components?.encodeToString()
+                    guard let colorInStringNoNil = colorInString else { return }
+                    dataController.uploadSubTopic(id: subTopic.subTopicsID, name: subTopicName, color: colorInStringNoNil)
+                    subTopicsSheet = nil
                 }label: {
                     Text("Save")
                 }
-                .disabled(stateButtonSave())
+                .disabled(subTopicName == "" ? true : false)
             }
         }
-    }
-}
-
-extension FormSubTopic {
-    private func saveEvent() {
-        let color = colorCards.cgColor?.components?.encodeToString()
-        guard let colorInString = color else { return }
-        dataController.createCreateSubTopic(name: subTopicName, topic: topic, color: colorInString)
-        subTopicsSheet = nil
-    }
-
-    private func stateButtonSave() -> Bool {
-        subTopicName == "" ? true : false
+        .onAppear {
+            subTopicName = subTopic.name
+        }
     }
 }

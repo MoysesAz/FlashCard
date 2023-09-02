@@ -1,8 +1,8 @@
 //
-//  SubTopics+CoreDataProperties.swift
-//  Presentation
+//  SubTopic+CoreDataProperties.swift
+//  Domain
 //
-//  Created by Moyses Miranda do Vale Azevedo on 20/07/23.
+//  Created by Moyses Miranda do Vale Azevedo on 25/07/23.
 //
 //
 
@@ -18,6 +18,7 @@ extension SubTopic {
     @NSManaged public var creationDate: Date
     @NSManaged public var name: String
     @NSManaged public var subTopicsID: UUID
+    @NSManaged public var color: String
     @NSManaged public var cards: NSSet?
     @NSManaged public var topic: Topic
 
