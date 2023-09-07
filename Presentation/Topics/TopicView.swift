@@ -24,6 +24,7 @@ struct TopicView: View {
     @State var stateSheet: StateSheet?
     @State private var showingAlert: Bool = false
     @State private var pointer: Int?
+    @State private var cache: String = ""
 
     var body: some View {
         NavigationStack {
@@ -40,7 +41,7 @@ struct TopicView: View {
         .sheet(item: $stateSheet) { item in
             switch item {
             case .showingCreating:
-                FormTopic(stateSheet: $stateSheet)
+                FormTopic(stateSheet: $stateSheet, cache: $cache)
                     .presentationDetents([.medium, .large])
                     .presentationDragIndicator(.visible)
             case .showingStore:

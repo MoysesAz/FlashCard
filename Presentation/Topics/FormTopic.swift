@@ -12,6 +12,7 @@ struct FormTopic: View {
     @ObservedObject var dataController = DataController.shared
     @State private var topicName: String = ""
     @Binding var stateSheet: StateSheet?
+    @Binding var cache: String
 
 
     var body: some View {
@@ -28,7 +29,7 @@ struct FormTopic: View {
                     if permissionToCreateTopic() {
                         createTopic()
                     } else {
-                        stateSheet = .showingStore
+                        openStory()
                     }
                 }label: {
                     Text("Save")
@@ -37,9 +38,15 @@ struct FormTopic: View {
             }
 
         }
+        .onAppear {
+            verifyCache()
+        }
     }
+}
 
+extension FormTopic {
     private func createTopic() {
+        cache = ""
         dataController.createTopic(name: topicName)
         dataController.subTopicRestrictions(number: 1)
         stateSheet = nil
@@ -49,5 +56,16 @@ struct FormTopic: View {
         let res = dataController.getRestrictions().first
         guard let topicLimit = res?.topicLimit else {return true}
         return topicLimit > 0 ? true : false
+    }
+
+    private func openStory() {
+        stateSheet = .showingStore
+        cache = topicName
+    }
+
+    private func verifyCache() {
+        if !cache.isEmpty {
+            topicName = cache
+        }
     }
 }
