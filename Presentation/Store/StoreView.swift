@@ -8,14 +8,34 @@
 import SwiftUI
 import Data
 
+
 struct StoreView: View {
     @ObservedObject var dataController = DataController.shared
-    @ObservedObject var viewController = ViewController()
-    @ObservedObject var interstitial: Interstitial =  Interstitial()
     @Binding var stateSheet: StateSheet?
-    var interstitialView: InterstitialView?
+    @ObservedObject var adState: AdState = AdState()
+    @State private var interstitialView: InterstitialView? // Propriedade para manter a referência
 
     var body: some View {
+        Text("")
+            .onAppear {
+                interstitialView = InterstitialView(adState: adState)
+            }
+        interstitialView?
+            .frame(width: .zero, height: .zero)
+        if adState.isAdReady {
+            story
+        } else {
+            loadingView
+        }
+    }
+
+    var loadingView: some View {
+        VStack {
+            ProgressView()
+        }
+    }
+
+    var story: some View {
         GeometryReader { geometry in
                 VStack{
                     HStack{
@@ -29,24 +49,21 @@ struct StoreView: View {
                         .navigationBarTitle("Título da Tela")
                         .frame(width: geometry.size.width * 0.8, height: geometry.size.height * 0.10)
                         .background()
-                    interstitial.view
-                        .frame(width: .zero, height: .zero)
                 }
-
         }
     }
 
     private func addTopic() {
-        interstitial.viewController.presentAd()
-        interstitial.viewController.completionEvent = {
+        interstitialView?.viewController.presentAd()
+        interstitialView?.viewController.completionEvent = {
             dataController.addTopicRestrictions(number: 1)
             stateSheet = .showingCreating
         }
     }
 
     private func addCards() {
-        interstitial.viewController.presentAd()
-        interstitial.viewController.completionEvent = {
+        interstitialView?.viewController.presentAd()
+        interstitialView?.viewController.completionEvent = {
             dataController.addCardRestrictions(number: 5)
             stateSheet = .showingCreating
         }
