@@ -42,6 +42,7 @@ struct CardView: View {
                 .overlay {
                     Text(title)
                         .font(.system(size: 36, weight: .bold))
+                        .padding(40)
                         .foregroundColor(.white)
                 }
             VStack {
