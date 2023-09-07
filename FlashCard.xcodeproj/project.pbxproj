@@ -124,7 +124,7 @@
 		95BAC5FC2A2987D1008D06E8 /* DataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DataTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		95BAC6032A2987D1008D06E8 /* DataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTests.swift; sourceTree = "<group>"; };
 		95BAC6142A298A8E008D06E8 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
-		95BAC61A2A298C10008D06E8 /* Presentation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Presentation.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		95BAC61A2A298C10008D06E8 /* DoubleCards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoubleCards.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95BAC61C2A298C10008D06E8 /* PresentationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationApp.swift; sourceTree = "<group>"; };
 		95BAC61E2A298C10008D06E8 /* TopicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicView.swift; sourceTree = "<group>"; };
 		95BAC6202A298C11008D06E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -340,7 +340,7 @@
 				95C57E652A25396B00D7565F /* UseCasesTests.xctest */,
 				95BAC5F52A2987D1008D06E8 /* Data.framework */,
 				95BAC5FC2A2987D1008D06E8 /* DataTests.xctest */,
-				95BAC61A2A298C10008D06E8 /* Presentation.app */,
+				95BAC61A2A298C10008D06E8 /* DoubleCards.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -495,9 +495,9 @@
 			productReference = 95BAC5FC2A2987D1008D06E8 /* DataTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		95BAC6192A298C10008D06E8 /* Presentation */ = {
+		95BAC6192A298C10008D06E8 /* DoubleCards */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 95BAC6262A298C11008D06E8 /* Build configuration list for PBXNativeTarget "Presentation" */;
+			buildConfigurationList = 95BAC6262A298C11008D06E8 /* Build configuration list for PBXNativeTarget "DoubleCards" */;
 			buildPhases = (
 				95BAC6162A298C10008D06E8 /* Sources */,
 				95BAC6172A298C10008D06E8 /* Frameworks */,
@@ -510,12 +510,12 @@
 				95BAC62D2A298C62008D06E8 /* PBXTargetDependency */,
 				953E14D22A2A2413006F1BB1 /* PBXTargetDependency */,
 			);
-			name = Presentation;
+			name = DoubleCards;
 			packageProductDependencies = (
 				95C22C722A6B7A2000BEB3C3 /* GoogleMobileAds */,
 			);
 			productName = Presentation;
-			productReference = 95BAC61A2A298C10008D06E8 /* Presentation.app */;
+			productReference = 95BAC61A2A298C10008D06E8 /* DoubleCards.app */;
 			productType = "com.apple.product-type.application";
 		};
 		95C57E352A25311700D7565F /* Domain */ = {
@@ -627,7 +627,7 @@
 				95C57E642A25396B00D7565F /* UseCasesTests */,
 				95BAC5F42A2987D1008D06E8 /* Data */,
 				95BAC5FB2A2987D1008D06E8 /* DataTests */,
-				95BAC6192A298C10008D06E8 /* Presentation */,
+				95BAC6192A298C10008D06E8 /* DoubleCards */,
 			);
 		};
 /* End PBXProject section */
@@ -1364,7 +1364,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		95BAC6262A298C11008D06E8 /* Build configuration list for PBXNativeTarget "Presentation" */ = {
+		95BAC6262A298C11008D06E8 /* Build configuration list for PBXNativeTarget "DoubleCards" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				95BAC6272A298C11008D06E8 /* Debug */,
