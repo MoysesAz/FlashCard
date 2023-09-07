@@ -14,6 +14,8 @@ struct FormCreateCard: View {
     @State private var title: String = ""
     @State var content: String = ""
     var subTopic: SubTopic
+    @Binding var cacheTitle: String
+    @Binding var cacheContent: String
 
 
     var body: some View {
@@ -33,7 +35,7 @@ struct FormCreateCard: View {
                     if permissionToCreateCard() {
                         createCard()
                     } else {
-                        stateSheet = .showingStore
+                        openStory()
                     }
 
                 }label: {
@@ -42,17 +44,36 @@ struct FormCreateCard: View {
                 .disabled(title == "" ? true : false)
             }
         }
+        .onAppear {
+            verifyCache()
+        }
     }
 
     private func  createCard() {
         dataController.createCreateCard(title: title, content: content, subTopic: subTopic)
         dataController.subCardRestrictions(number: 1)
         stateSheet = nil
+        cacheTitle = ""
+        cacheContent = ""
     }
 
     private func permissionToCreateCard() -> Bool {
         let res = dataController.getRestrictions().first
         guard let cardLimit = res?.cardLimit else {return true}
         return cardLimit > 0 ? true : false
+    }
+
+
+    private func openStory() {
+        stateSheet = .showingStore
+        cacheTitle = title
+        cacheContent = content
+    }
+
+    private func verifyCache() {
+        if !cacheTitle.isEmpty && !cacheContent.isEmpty {
+            title = cacheTitle
+            content = cacheContent
+        }
     }
 }

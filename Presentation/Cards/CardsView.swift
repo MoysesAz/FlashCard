@@ -14,6 +14,9 @@ struct CardsView: View {
     @State var delete: Bool = false
     @State var cards: [Card] = []
     @State var color: Color = Color.blue
+    @State var cacheTitle: String = ""
+    @State var cacheContent: String = ""
+
     
     var body: some View {
         NavigationStack {
@@ -32,7 +35,7 @@ struct CardsView: View {
         .sheet(item: $stateSheet) { item in
             switch item {
             case .showingCreating:
-                FormCreateCard(stateSheet: $stateSheet, subTopic: subTopic)
+                FormCreateCard(stateSheet: $stateSheet, subTopic: subTopic, cacheTitle: $cacheTitle, cacheContent: $cacheContent)
                     .presentationDetents([.medium])
             case .showingEdit:
                 EmptyView()
