@@ -26,51 +26,16 @@ struct TopicView: View {
 
     var body: some View {
         NavigationStack {
-                List {
-                    ForEach(topics.indices, id: \.self) { index in
-                        NavigationLink(topics[index].name,
-                                       destination: SubTopicView(topic: topics[index])
-                        )
-                        .swipeActions {
-                            Button("Delete") {
-                                deleteEvent(index)
-                            }
-                            .tint(.red)
-                            Button("Edit") {
-                                editEvent(index)
-                            }
-                            .tint(.blue)
-                        }
-                    }
-                    .alert(isPresented: $showingAlert) {
-                        Alert(
-                            title: Text("Are you sure you want to delete the \(topics[pointer!].name) topic?"),
-                            message: Text("If you delete it, you will lose the main topic, its subtopics, and all the cards within the subtopics!!!"),
-                            primaryButton: .destructive(Text("Delete")) {
-                                let topic = getTopic()
-                                dataController.deleteTopic(topic: topic)
-                                loadTopics()
-                            },
-                            secondaryButton: .cancel{
-                                showingAlert = false
-                            }
-                        )
-                    }
-                }
-            .onAppear {
-                verification()
-                loadTopics()
-            }
-            .navigationTitle("Topics")
-            .toolbar {
-                Button {
-                    stateSheet = .showingCreating
-                }label: {
-                    Image(systemName: "plus")
-                }
+            if topics.isEmpty {
+                emptyView
+            } else {
+                listTopics
             }
         }
         .id(stateSheet)
+        .onAppear {
+            verification()
+        }
         .sheet(item: $stateSheet) { item in
             switch item {
             case .showingCreating:
@@ -88,7 +53,67 @@ struct TopicView: View {
                     .presentationDragIndicator(.visible)
             }
         }
+    }
 
+    var listTopics: some View {
+        List {
+            ForEach(topics.indices, id: \.self) { index in
+                NavigationLink(topics[index].name,
+                               destination: SubTopicView(topic: topics[index])
+                )
+                .swipeActions {
+                    Button("Delete") {
+                        deleteEvent(index)
+                    }
+                    .tint(.red)
+                    Button("Edit") {
+                        editEvent(index)
+                    }
+                    .tint(.blue)
+                }
+            }
+            .alert(isPresented: $showingAlert) {
+                Alert(
+                    title: Text("Are you sure you want to delete the \(topics[pointer!].name) topic?"),
+                    message: Text("If you delete it, you will lose the main topic, its subtopics, and all the cards within the subtopics!!!"),
+                    primaryButton: .destructive(Text("Delete")) {
+                        let topic = getTopic()
+                        dataController.deleteTopic(topic: topic)
+                        loadTopics()
+                    },
+                    secondaryButton: .cancel{
+                        showingAlert = false
+                    }
+                )
+            }
+        }
+        .navigationTitle("Topics")
+        .onAppear {
+            loadTopics()
+        }
+        .toolbar {
+            Button {
+                stateSheet = .showingCreating
+            }label: {
+                Image(systemName: "plus")
+            }
+        }
+
+    }
+
+    var emptyView: some View {
+        Text("Click the (+) to create a new Topic")
+            .navigationTitle("Topics")
+            .onAppear {
+                loadTopics()
+            }
+            .toolbar {
+                Button {
+                    stateSheet = .showingCreating
+                }label: {
+                    Image(systemName: "plus")
+                }
+            }
     }
 }
 
