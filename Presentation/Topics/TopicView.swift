@@ -45,9 +45,8 @@ struct TopicView: View {
                     .presentationDragIndicator(.visible)
             case .showingStore:
                 StoreView(stateSheet: $stateSheet)
-                    .presentationDetents([.medium, .large])
+                    .presentationDetents([.medium])
                     .presentationDragIndicator(.visible)
-
             case .showingEdit:
                 FormEditTopic(stateSheet: $stateSheet, topic: getTopic())
                     .presentationDetents([.medium, .large])
