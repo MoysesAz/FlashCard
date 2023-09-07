@@ -17,29 +17,18 @@ struct CardsView: View {
     
     var body: some View {
         NavigationStack {
-            ScrollView {
-                    ForEach(cards, id: \.self) { card in
-                        CardView(card: card, delete: $delete, color: color)
-                    }
-                    .onAppear {
-                        let valueColor = subTopic.color.decodeCGFloatList()
-                        guard let listValues = valueColor else { return }
-                        color = Color(red: listValues[0], green: listValues[1], blue: listValues[2], opacity: listValues[3])
-                        let array = subTopic.cards?.allObjects as! [Card]
-                        cards = array
-                    }
-                }
-            .id(stateSheet)
-            .id(delete)
-            .navigationTitle("Cards")
-            .toolbar {
-                Button {
-                    stateSheet = .showingCreating
-                }label: {
-                    Image(systemName: "plus")
-                }
+            if cards.isEmpty {
+                emptyView
+            } else {
+                listCards
             }
         }
+        .onAppear {
+            loadColorCards()
+            loadCards()
+        }
+        .id(stateSheet)
+        .id(delete)
         .sheet(item: $stateSheet) { item in
             switch item {
             case .showingCreating:
@@ -52,5 +41,47 @@ struct CardsView: View {
                     .presentationDetents([.medium])
             }
         }
+    }
+
+    var listCards: some View {
+        ScrollView {
+                ForEach(cards, id: \.self) { card in
+                    CardView(card: card, delete: $delete, color: color)
+                }
+            }
+        .navigationTitle("Cards")
+        .toolbar {
+            Button {
+                stateSheet = .showingCreating
+            }label: {
+                Image(systemName: "plus")
+            }
+        }
+    }
+
+    var emptyView: some View {
+        Text("Click the (+) to create a new Card")
+            .navigationTitle("Cards")
+            .toolbar {
+                Button {
+                    stateSheet = .showingCreating
+                }label: {
+                    Image(systemName: "plus")
+                }
+            }
+    }
+}
+
+
+extension CardsView {
+    func loadCards() {
+        let array = subTopic.cards?.allObjects as! [Card]
+        cards = array
+    }
+
+    func loadColorCards() {
+        let valueColor = subTopic.color.decodeCGFloatList()
+        guard let listValues = valueColor else { return }
+        color = Color(red: listValues[0], green: listValues[1], blue: listValues[2], opacity: listValues[3])
     }
 }
