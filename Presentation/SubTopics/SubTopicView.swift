@@ -27,20 +27,23 @@ struct SubTopicView: View {
         NavigationStack {
             VStack {
                 List {
-                    ForEach(subTopics.indices, id: \.self) { index in
-                        NavigationLink(subTopics[index].name,
-                                       destination: CardsView(subTopic: subTopics[index])
-                        )
-                        .swipeActions {
-                            Button("Delete") {
-                                deleteEvent(index)
+                    Section(topic.name) {
+                        ForEach(subTopics.indices, id: \.self) { index in
+                            NavigationLink(subTopics[index].name,
+                                           destination: CardsView(subTopic: subTopics[index])
+                            )
+                            .swipeActions {
+                                Button("Delete") {
+                                    deleteEvent(index)
+                                }
+                                .tint(.red)
+                                Button("Edit") {
+                                    editEvent(index)
+                                }
+                                .tint(.blue)
                             }
-                            .tint(.red)
-                            Button("Edit") {
-                                editEvent(index)
-                            }
-                            .tint(.blue)
                         }
+
                     }
                 }
                 .alert(isPresented: $showingAlert) {
@@ -61,7 +64,7 @@ struct SubTopicView: View {
             .onAppear {
                 loadSubTopics()
             }
-            .navigationTitle(topic.name)
+            .navigationTitle("SubTopics")
             .toolbar {
                 Button {
                     subTopicsSheet = .showingSheetSubNewTopic
