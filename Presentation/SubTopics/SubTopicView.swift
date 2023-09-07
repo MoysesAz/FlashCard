@@ -25,49 +25,10 @@ struct SubTopicView: View {
 
     var body: some View {
         NavigationStack {
-            VStack {
-                List {
-                    ForEach(subTopics.indices, id: \.self) { index in
-                        NavigationLink(subTopics[index].name,
-                                       destination: CardsView(subTopic: subTopics[index])
-                        )
-                        .swipeActions {
-                            Button("Delete") {
-                                deleteEvent(index)
-                            }
-                            .tint(.red)
-                            Button("Edit") {
-                                editEvent(index)
-                            }
-                            .tint(.blue)
-                        }
-                    }
-                }
-                .alert(isPresented: $showingAlert) {
-                    Alert(
-                        title: Text("Are you sure you want to delete the \(subTopics[pointer!].name) SubTopic?"),
-                        message: Text("if you delete that subtopic you will lose all cards that are linked to it!!!"),
-                        primaryButton: .destructive(Text("Delete")) {
-                            let subTopic = getSubTopic()
-                            dataController.deleteSubTopic(subTopic: subTopic)
-                            loadSubTopics()
-                        },
-                        secondaryButton: .cancel{
-                            showingAlert = false
-                        }
-                    )
-                }
-            }
-            .onAppear {
-                loadSubTopics()
-            }
-            .navigationTitle(topic.name)
-            .toolbar {
-                Button {
-                    subTopicsSheet = .showingSheetSubNewTopic
-                }label: {
-                    Image(systemName: "plus")
-                }
+            if subTopics.isEmpty {
+                emptyView
+            } else {
+                listSubTopics
             }
         }
         .id(subTopicsSheet)
@@ -81,6 +42,70 @@ struct SubTopicView: View {
                     .presentationDetents([.medium])
             }
         }
+    }
+
+    var listSubTopics: some View {
+        List {
+            Section(topic.name) {
+                ForEach(subTopics.indices, id: \.self) { index in
+                    NavigationLink(subTopics[index].name,
+                                   destination: CardsView(subTopic: subTopics[index])
+                    )
+                    .swipeActions {
+                        Button("Delete") {
+                            deleteEvent(index)
+                        }
+                        .tint(.red)
+                        Button("Edit") {
+                            editEvent(index)
+                        }
+                        .tint(.blue)
+                    }
+                }
+
+            }
+            .alert(isPresented: $showingAlert) {
+                Alert(
+                    title: Text("Are you sure you want to delete the \(subTopics[pointer!].name) SubTopic?"),
+                    message: Text("if you delete that subtopic you will lose all cards that are linked to it!!!"),
+                    primaryButton: .destructive(Text("Delete")) {
+                        let subTopic = getSubTopic()
+                        dataController.deleteSubTopic(subTopic: subTopic)
+                        loadSubTopics()
+                    },
+                    secondaryButton: .cancel{
+                        showingAlert = false
+                    }
+                )
+            }
+        }
+        .onAppear {
+            loadSubTopics()
+        }
+        .navigationTitle("SubTopics")
+        .toolbar {
+            Button {
+                subTopicsSheet = .showingSheetSubNewTopic
+            }label: {
+                Image(systemName: "plus")
+            }
+        }
+    }
+
+    var emptyView: some View {
+        Text("Click the (+) to create a new SubTopic")
+            .onAppear {
+                loadSubTopics()
+            }
+            .navigationTitle("SubTopics")
+            .toolbar {
+                Button {
+                    subTopicsSheet = .showingSheetSubNewTopic
+                }label: {
+                    Image(systemName: "plus")
+                }
+            }
+
     }
 }
 

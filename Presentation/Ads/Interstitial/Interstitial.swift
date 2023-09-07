@@ -9,14 +9,15 @@ import UIKit
 import GoogleMobileAds
 import SwiftUI
 
-class ViewController: UIViewController, GADFullScreenContentDelegate, ObservableObject {
-    @Published var ad: GADInterstitialAd?
+class ViewController: UIViewController, GADFullScreenContentDelegate {
+    var ad: GADInterstitialAd?
     var completionEvent: () -> () = {}
+    var adState: AdState?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         let request = GADRequest()
-        GADInterstitialAd.load(withAdUnitID: "ca-app-pub-3940256099942544/4411468910",
+        GADInterstitialAd.load(withAdUnitID: "ca-app-pub-1227764449813396/7626771908",
                                request: request,
                                completionHandler: { [self] ad, error in
             if let error = error {
@@ -25,6 +26,7 @@ class ViewController: UIViewController, GADFullScreenContentDelegate, Observable
             }
             self.ad = ad
             self.ad?.fullScreenContentDelegate = self
+            self.adState?.isAdReady = true
         }
         )
     }
@@ -51,9 +53,11 @@ class ViewController: UIViewController, GADFullScreenContentDelegate, Observable
 }
 
 struct InterstitialView: UIViewControllerRepresentable {
-    var viewController: ViewController
+    var viewController: ViewController = ViewController()
+    @ObservedObject var adState: AdState
 
     func makeUIViewController(context: Context) -> some UIViewController {
+        viewController.adState = adState
         return viewController
     }
 
@@ -61,11 +65,6 @@ struct InterstitialView: UIViewControllerRepresentable {
     }
 }
 
-class Interstitial: ObservableObject {
-    @ObservedObject var viewController: ViewController = ViewController()
-    var view: InterstitialView?
-
-    init() {
-        self.view = InterstitialView(viewController: self.viewController)
-    }
+class AdState: ObservableObject {
+    @Published var isAdReady: Bool = false
 }
