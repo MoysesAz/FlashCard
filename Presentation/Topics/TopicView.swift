@@ -17,6 +17,7 @@ enum StateSheet: Identifiable {
     }
 }
 
+
 struct TopicView: View {
     @ObservedObject var dataController = DataController.shared
     @State private var topics: [Topic] = []
@@ -98,7 +99,6 @@ struct TopicView: View {
                 Image(systemName: "plus")
             }
         }
-
     }
 
     var emptyView: some View {
