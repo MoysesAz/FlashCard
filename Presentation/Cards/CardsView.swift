@@ -17,7 +17,6 @@ struct CardsView: View {
     
     var body: some View {
         NavigationStack {
-
             ScrollView {
                     ForEach(cards, id: \.self) { card in
                         CardView(card: card, delete: $delete, color: color)
