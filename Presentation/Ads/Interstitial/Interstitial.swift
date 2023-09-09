@@ -12,7 +12,6 @@ import SwiftUI
 class ViewController: UIViewController, GADFullScreenContentDelegate {
     var ad: GADInterstitialAd?
     var completionEvent: () -> () = {}
-    var adState: AdState?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +25,6 @@ class ViewController: UIViewController, GADFullScreenContentDelegate {
             }
             self.ad = ad
             self.ad?.fullScreenContentDelegate = self
-            self.adState?.isAdReady = true
         }
         )
     }
@@ -54,17 +52,11 @@ class ViewController: UIViewController, GADFullScreenContentDelegate {
 
 struct InterstitialView: UIViewControllerRepresentable {
     var viewController: ViewController = ViewController()
-    @ObservedObject var adState: AdState
 
     func makeUIViewController(context: Context) -> some UIViewController {
-        viewController.adState = adState
         return viewController
     }
 
     func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
     }
-}
-
-class AdState: ObservableObject {
-    @Published var isAdReady: Bool = false
 }
