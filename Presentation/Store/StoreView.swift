@@ -8,24 +8,28 @@
 import SwiftUI
 import Data
 
-
 struct StoreView: View {
     @ObservedObject var dataController = DataController.shared
     @Binding var stateSheet: StateSheet?
-    @ObservedObject var adState: AdState = AdState()
-    @State private var interstitialView: InterstitialView? // Propriedade para manter a referência
+    @State private var interstitialView: InterstitialView = InterstitialView() // Propriedade para manter a referência
+    @State private var showProgressView = true
 
     var body: some View {
-        Text("")
-            .onAppear {
-                interstitialView = InterstitialView(adState: adState)
+        VStack {
+            interstitialView
+                .frame(width: .zero, height: .zero)
+            if showProgressView {
+                loadingView
+                    .onAppear {
+                        Timer.scheduledTimer(withTimeInterval: 1.8, repeats: false) { _ in
+                            withAnimation {
+                                showProgressView = false
+                            }
+                        }
+                    }
+            } else {
+                story
             }
-        interstitialView?
-            .frame(width: .zero, height: .zero)
-        if adState.isAdReady {
-            story
-        } else {
-            loadingView
         }
     }
 
@@ -54,16 +58,16 @@ struct StoreView: View {
     }
 
     private func addTopic() {
-        interstitialView?.viewController.presentAd()
-        interstitialView?.viewController.completionEvent = {
+        interstitialView.viewController.presentAd()
+        interstitialView.viewController.completionEvent = {
             dataController.addTopicRestrictions(number: 1)
             stateSheet = .showingCreating
         }
     }
 
     private func addCards() {
-        interstitialView?.viewController.presentAd()
-        interstitialView?.viewController.completionEvent = {
+        interstitialView.viewController.presentAd()
+        interstitialView.viewController.completionEvent = {
             dataController.addCardRestrictions(number: 5)
             stateSheet = .showingCreating
         }
