@@ -41,8 +41,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/googleads/swift-package-manager-google-mobile-ads.git",
       "state" : {
-        "revision" : "44fee5519785604f056eab6d0400decf160f6ca8",
-        "version" : "10.8.0"
+        "revision" : "ead08bff32a4ee6599070d656770cedc310f434a",
+        "version" : "10.10.0"
       }
     },
     {
