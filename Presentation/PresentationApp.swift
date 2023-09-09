@@ -23,6 +23,7 @@ struct PresentationApp: App {
 
     init() {
         GADMobileAds.sharedInstance().start(completionHandler: nil)
+//        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = [ "d2c998b7676afd2b2f78b348c760ac69" ]
     }
 
     var body: some Scene {
