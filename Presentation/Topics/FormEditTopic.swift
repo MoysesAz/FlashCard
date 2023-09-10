@@ -17,17 +17,17 @@ struct FormEditTopic: View {
     var body: some View {
         NavigationView {
             Form {
-                Section("Topic Name"){
-                    TextField("Enter Name", text: $topicName)
+                Section("topicName-string"){
+                    TextField("enterName-string", text: $topicName)
                         .padding()
                 }
             }
-            .navigationTitle("Form Topic")
+            .navigationTitle("topicform-string")
             .toolbar {
                 Button {
                     saveEvent()
                 }label: {
-                    Text("Save")
+                    Text("save-string")
                 }
                 .disabled(topicName == "" ? true : false)
             }

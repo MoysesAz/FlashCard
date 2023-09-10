@@ -18,12 +18,12 @@ struct FormTopic: View {
     var body: some View {
         NavigationStack{
             Form {
-                Section("Topic Name"){
-                    TextField("Enter Name", text: $topicName)
+                Section("topicName-string"){
+                    TextField("enterName-string", text: $topicName)
                         .padding()
                 }
             }
-            .navigationTitle("Form Topic")
+            .navigationTitle("topicform-string")
             .toolbar {
                 Button {
                     if permissionToCreateTopic() {
@@ -32,7 +32,7 @@ struct FormTopic: View {
                         openStory()
                     }
                 }label: {
-                    Text("Save")
+                    Text("save-string")
                 }
                 .disabled(topicName == "" ? true : false)
             }

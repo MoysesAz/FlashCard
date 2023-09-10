@@ -52,11 +52,11 @@ struct SubTopicView: View {
                                    destination: CardsView(subTopic: subTopics[index])
                     )
                     .swipeActions {
-                        Button("Delete") {
+                        Button("delete-string") {
                             deleteEvent(index)
                         }
                         .tint(.red)
-                        Button("Edit") {
+                        Button("edit-string") {
                             editEvent(index)
                         }
                         .tint(.blue)
@@ -66,9 +66,9 @@ struct SubTopicView: View {
             }
             .alert(isPresented: $showingAlert) {
                 Alert(
-                    title: Text("Are you sure you want to delete the \(subTopics[pointer!].name) SubTopic?"),
-                    message: Text("if you delete that subtopic you will lose all cards that are linked to it!!!"),
-                    primaryButton: .destructive(Text("Delete")) {
+                    title: Text("titleSubTopicDelete-string \(subTopics[pointer!].name)"),
+                    message: Text("menssageSubTopicDelete-string"),
+                    primaryButton: .destructive(Text("delete-string")) {
                         let subTopic = getSubTopic()
                         dataController.deleteSubTopic(subTopic: subTopic)
                         loadSubTopics()
@@ -82,7 +82,7 @@ struct SubTopicView: View {
         .onAppear {
             loadSubTopics()
         }
-        .navigationTitle("SubTopics")
+        .navigationTitle("subTopics-string")
         .toolbar {
             Button {
                 subTopicsSheet = .showingSheetSubNewTopic
@@ -93,11 +93,11 @@ struct SubTopicView: View {
     }
 
     var emptyView: some View {
-        Text("Click the (+) to create a new SubTopic")
+        Text("emptySubTopic-string")
             .onAppear {
                 loadSubTopics()
             }
-            .navigationTitle("SubTopics")
+            .navigationTitle("subTopics-string")
             .toolbar {
                 Button {
                     subTopicsSheet = .showingSheetSubNewTopic

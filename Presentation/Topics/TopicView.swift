@@ -62,11 +62,11 @@ struct TopicView: View {
                                destination: SubTopicView(topic: topics[index])
                 )
                 .swipeActions {
-                    Button("Delete") {
+                    Button("delete-string") {
                         deleteEvent(index)
                     }
                     .tint(.red)
-                    Button("Edit") {
+                    Button("edit-string") {
                         editEvent(index)
                     }
                     .tint(.blue)
@@ -74,9 +74,9 @@ struct TopicView: View {
             }
             .alert(isPresented: $showingAlert) {
                 Alert(
-                    title: Text("Are you sure you want to delete the \(topics[pointer!].name) topic?"),
-                    message: Text("If you delete it, you will lose the main topic, its subtopics, and all the cards within the subtopics!!!"),
-                    primaryButton: .destructive(Text("Delete")) {
+                    title: Text("titleTopicDelete-string \(topics[pointer!].name)"),
+                    message: Text("menssageTopicDelete-string"),
+                    primaryButton: .destructive(Text("delete-string")) {
                         let topic = getTopic()
                         dataController.deleteTopic(topic: topic)
                         loadTopics()
@@ -87,7 +87,7 @@ struct TopicView: View {
                 )
             }
         }
-        .navigationTitle("Topics")
+        .navigationTitle("topics-string")
         .onAppear {
             loadTopics()
         }
@@ -101,8 +101,8 @@ struct TopicView: View {
     }
 
     var emptyView: some View {
-        Text("Click the (+) to create a new Topic")
-            .navigationTitle("Topics")
+        Text("emptyTopic-string")
+            .navigationTitle("topics-string")
             .onAppear {
                 loadTopics()
             }

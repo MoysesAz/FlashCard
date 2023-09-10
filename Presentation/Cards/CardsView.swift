@@ -52,7 +52,7 @@ struct CardsView: View {
                     CardView(card: card, delete: $delete, color: color)
                 }
             }
-        .navigationTitle("Cards")
+        .navigationTitle("cards-string")
         .toolbar {
             Button {
                 stateSheet = .showingCreating
@@ -64,7 +64,7 @@ struct CardsView: View {
 
     var emptyView: some View {
         Text("Click the (+) to create a new Card")
-            .navigationTitle("Cards")
+            .navigationTitle("cards-string")
             .toolbar {
                 Button {
                     stateSheet = .showingCreating

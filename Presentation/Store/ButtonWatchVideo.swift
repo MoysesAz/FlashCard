@@ -23,7 +23,7 @@ struct ButtonWatchVideo: View {
                             .padding(10)
                     }
                     Spacer()
-                    Button("WatchVideo") {
+                    Button("watchVideo-string") {
                         openAds()
                     }
                     .padding(.bottom, 20)

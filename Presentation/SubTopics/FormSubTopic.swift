@@ -18,21 +18,21 @@ struct FormSubTopic: View {
     var body: some View {
         NavigationView {
             Form {
-                Section("SubTopic Name"){
-                    TextField("Enter Name", text: $subTopicName)
+                Section("subTopicName-string"){
+                    TextField("enterName-string", text: $subTopicName)
                         .padding()
                 }
-                Section("Color") {
-                    ColorPicker("Enter Color", selection: $colorCards)
+                Section("color-string") {
+                    ColorPicker("enterColor-string", selection: $colorCards)
                         .padding()
                 }
             }
-            .navigationTitle("Form SubTopic")
+            .navigationTitle("subTopicform-string")
             .toolbar {
                 Button {
                     saveEvent()
                 }label: {
-                    Text("Save")
+                    Text("save-string")
                 }
                 .disabled(stateButtonSave())
             }
