@@ -18,16 +18,16 @@ struct FormEditSubTopic: View {
     var body: some View {
         NavigationView {
             Form {
-                Section("SubTopic Name"){
-                    TextField("Enter Name", text: $subTopicName)
+                Section("subTopicName-string"){
+                    TextField("enterName-string", text: $subTopicName)
                         .padding()
                 }
-                Section("Color") {
-                    ColorPicker("Enter Color", selection: $colorCards)
+                Section("color-string") {
+                    ColorPicker("enterColor-string", selection: $colorCards)
                         .padding()
                 }
             }
-            .navigationTitle("Form SubTopic")
+            .navigationTitle("subTopicform-string")
             .toolbar {
                 Button {
                     let colorInString = colorCards.cgColor?.components?.encodeToString()
@@ -35,7 +35,7 @@ struct FormEditSubTopic: View {
                     dataController.uploadSubTopic(id: subTopic.subTopicsID, name: subTopicName, color: colorInStringNoNil)
                     subTopicsSheet = nil
                 }label: {
-                    Text("Save")
+                    Text("save-string")
                 }
                 .disabled(subTopicName == "" ? true : false)
             }

@@ -43,14 +43,15 @@ struct StoreView: View {
         GeometryReader { geometry in
                 VStack{
                     HStack{
-                        ButtonWatchVideo(award: "1 Topic", openAds: addTopic)
-                        ButtonWatchVideo(award: "5 Cards", openAds: addCards)
+                        ButtonWatchVideo(award:
+                                            NSLocalizedString("topicStory-string", comment: "")
+                                            , openAds: addTopic)
+                        ButtonWatchVideo(award: NSLocalizedString("cardStory-string", comment: ""), openAds: addCards)
                     }
                     .padding()
                     .buttonBorderShape(.roundedRectangle)
                     .buttonStyle(.borderedProminent)
                     BannerView()
-                        .navigationBarTitle("Título da Tela")
                         .frame(width: geometry.size.width * 0.8, height: geometry.size.height * 0.10)
                         .background()
                 }
